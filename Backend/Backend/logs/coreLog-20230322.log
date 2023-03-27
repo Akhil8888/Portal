@@ -1,0 +1,1288 @@
+[2023-03-22 10:09:59.479 +05:30  INF]  Entity Framework Core 6.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.12' with options: None
+[2023-03-22 10:10:13.608 +05:30  INF]  Entity Framework Core 6.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.12' with options: None
+[2023-03-22 10:10:14.236 +05:30  INF]  Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+[2023-03-22 10:10:14.260 +05:30  INF]  Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+[2023-03-22 10:10:14.263 +05:30  INF]  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+[2023-03-22 10:10:14.347 +05:30  INF]  Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [__EFMigrationsHistory] (
+    [MigrationId] nvarchar(150) NOT NULL,
+    [ProductVersion] nvarchar(32) NOT NULL,
+    CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+);
+[2023-03-22 10:10:14.350 +05:30  INF]  Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+[2023-03-22 10:10:14.351 +05:30  INF]  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+[2023-03-22 10:10:14.353 +05:30  INF]  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+[2023-03-22 10:10:14.365 +05:30  INF]  Applying migration '20230322043959_first'.
+[2023-03-22 10:10:14.417 +05:30  INF]  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetRoles] (
+    [Id] nvarchar(450) NOT NULL,
+    [Name] nvarchar(256) NULL,
+    [NormalizedName] nvarchar(256) NULL,
+    [ConcurrencyStamp] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetRoles] PRIMARY KEY ([Id])
+);
+[2023-03-22 10:10:14.419 +05:30  INF]  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUsers] (
+    [Id] nvarchar(450) NOT NULL,
+    [UserName] nvarchar(256) NULL,
+    [NormalizedUserName] nvarchar(256) NULL,
+    [Email] nvarchar(256) NULL,
+    [NormalizedEmail] nvarchar(256) NULL,
+    [EmailConfirmed] bit NOT NULL,
+    [PasswordHash] nvarchar(max) NULL,
+    [SecurityStamp] nvarchar(max) NULL,
+    [ConcurrencyStamp] nvarchar(max) NULL,
+    [PhoneNumber] nvarchar(max) NULL,
+    [PhoneNumberConfirmed] bit NOT NULL,
+    [TwoFactorEnabled] bit NOT NULL,
+    [LockoutEnd] datetimeoffset NULL,
+    [LockoutEnabled] bit NOT NULL,
+    [AccessFailedCount] int NOT NULL,
+    CONSTRAINT [PK_AspNetUsers] PRIMARY KEY ([Id])
+);
+[2023-03-22 10:10:14.424 +05:30  INF]  Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetRoleClaims] (
+    [Id] int NOT NULL IDENTITY,
+    [RoleId] nvarchar(450) NOT NULL,
+    [ClaimType] nvarchar(max) NULL,
+    [ClaimValue] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetRoleClaims] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_AspNetRoleClaims_AspNetRoles_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [AspNetRoles] ([Id]) ON DELETE CASCADE
+);
+[2023-03-22 10:10:14.426 +05:30  INF]  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserClaims] (
+    [Id] int NOT NULL IDENTITY,
+    [UserId] nvarchar(450) NOT NULL,
+    [ClaimType] nvarchar(max) NULL,
+    [ClaimValue] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetUserClaims] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_AspNetUserClaims_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+[2023-03-22 10:10:14.433 +05:30  INF]  Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserLogins] (
+    [LoginProvider] nvarchar(450) NOT NULL,
+    [ProviderKey] nvarchar(450) NOT NULL,
+    [ProviderDisplayName] nvarchar(max) NULL,
+    [UserId] nvarchar(450) NOT NULL,
+    CONSTRAINT [PK_AspNetUserLogins] PRIMARY KEY ([LoginProvider], [ProviderKey]),
+    CONSTRAINT [FK_AspNetUserLogins_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+[2023-03-22 10:10:14.438 +05:30  INF]  Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserRoles] (
+    [UserId] nvarchar(450) NOT NULL,
+    [RoleId] nvarchar(450) NOT NULL,
+    CONSTRAINT [PK_AspNetUserRoles] PRIMARY KEY ([UserId], [RoleId]),
+    CONSTRAINT [FK_AspNetUserRoles_AspNetRoles_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [AspNetRoles] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_AspNetUserRoles_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+[2023-03-22 10:10:14.441 +05:30  INF]  Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserTokens] (
+    [UserId] nvarchar(450) NOT NULL,
+    [LoginProvider] nvarchar(450) NOT NULL,
+    [Name] nvarchar(450) NOT NULL,
+    [Value] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetUserTokens] PRIMARY KEY ([UserId], [LoginProvider], [Name]),
+    CONSTRAINT [FK_AspNetUserTokens_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+[2023-03-22 10:10:14.444 +05:30  INF]  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Users] (
+    [UserId] nvarchar(450) NOT NULL,
+    [FirstName] nvarchar(max) NOT NULL,
+    [LastName] nvarchar(max) NOT NULL,
+    [Image] nvarchar(max) NULL,
+    [DOB] datetime2 NOT NULL,
+    [DOJ] datetime2 NULL,
+    [Gender] nvarchar(max) NOT NULL,
+    [Address] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Users] PRIMARY KEY ([UserId]),
+    CONSTRAINT [FK_Users_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+[2023-03-22 10:10:14.446 +05:30  INF]  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [News] (
+    [NewsId] nvarchar(450) NOT NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    [Subject] nvarchar(max) NOT NULL,
+    [Content] nvarchar(max) NOT NULL,
+    [Image] nvarchar(max) NULL,
+    [IsActive] bit NOT NULL,
+    [IsDeleted] bit NOT NULL,
+    [UserId] nvarchar(450) NOT NULL,
+    CONSTRAINT [PK_News] PRIMARY KEY ([NewsId]),
+    CONSTRAINT [FK_News_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([UserId]) ON DELETE CASCADE
+);
+[2023-03-22 10:10:14.489 +05:30  INF]  Executed DbCommand (43ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'ConcurrencyStamp', N'Name', N'NormalizedName') AND [object_id] = OBJECT_ID(N'[AspNetRoles]'))
+    SET IDENTITY_INSERT [AspNetRoles] ON;
+INSERT INTO [AspNetRoles] ([Id], [ConcurrencyStamp], [Name], [NormalizedName])
+VALUES (N'e46f1bfb-a425-4438-831c-6e7ab5dc46bb', N'1', N'superuser', N'SUPERUSER');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'ConcurrencyStamp', N'Name', N'NormalizedName') AND [object_id] = OBJECT_ID(N'[AspNetRoles]'))
+    SET IDENTITY_INSERT [AspNetRoles] OFF;
+[2023-03-22 10:10:14.510 +05:30  INF]  Executed DbCommand (21ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'AccessFailedCount', N'ConcurrencyStamp', N'Email', N'EmailConfirmed', N'LockoutEnabled', N'LockoutEnd', N'NormalizedEmail', N'NormalizedUserName', N'PasswordHash', N'PhoneNumber', N'PhoneNumberConfirmed', N'SecurityStamp', N'TwoFactorEnabled', N'UserName') AND [object_id] = OBJECT_ID(N'[AspNetUsers]'))
+    SET IDENTITY_INSERT [AspNetUsers] ON;
+INSERT INTO [AspNetUsers] ([Id], [AccessFailedCount], [ConcurrencyStamp], [Email], [EmailConfirmed], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserName])
+VALUES (N'056f40f2-5fc9-41fb-8036-f1670e7344a3', 0, N'6dd60de9-199e-4dc5-92b6-d42a9514653d', N'superadmin@gmail.com', CAST(0 AS bit), CAST(0 AS bit), NULL, N'SUPERADMIN@GMAIL.COM', N'SUPERADMIN@GMAIL.COM', N'AQAAAAEAACcQAAAAEIAZBs7X/9KBOo3SLgx72eVdBLyFnBbvzwrs1p5jPCvUbX+zFmkZiVM00IN9u0lHtw==', N'1234567890', CAST(0 AS bit), N'4ee39153-ca7a-4f41-96cb-c9fd651fae7d', CAST(0 AS bit), N'superadmin@gmail.com');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'AccessFailedCount', N'ConcurrencyStamp', N'Email', N'EmailConfirmed', N'LockoutEnabled', N'LockoutEnd', N'NormalizedEmail', N'NormalizedUserName', N'PasswordHash', N'PhoneNumber', N'PhoneNumberConfirmed', N'SecurityStamp', N'TwoFactorEnabled', N'UserName') AND [object_id] = OBJECT_ID(N'[AspNetUsers]'))
+    SET IDENTITY_INSERT [AspNetUsers] OFF;
+[2023-03-22 10:10:14.528 +05:30  INF]  Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'RoleId', N'UserId') AND [object_id] = OBJECT_ID(N'[AspNetUserRoles]'))
+    SET IDENTITY_INSERT [AspNetUserRoles] ON;
+INSERT INTO [AspNetUserRoles] ([RoleId], [UserId])
+VALUES (N'e46f1bfb-a425-4438-831c-6e7ab5dc46bb', N'056f40f2-5fc9-41fb-8036-f1670e7344a3');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'RoleId', N'UserId') AND [object_id] = OBJECT_ID(N'[AspNetUserRoles]'))
+    SET IDENTITY_INSERT [AspNetUserRoles] OFF;
+[2023-03-22 10:10:14.535 +05:30  INF]  Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetRoleClaims_RoleId] ON [AspNetRoleClaims] ([RoleId]);
+[2023-03-22 10:10:14.567 +05:30  INF]  Executed DbCommand (32ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [RoleNameIndex] ON [AspNetRoles] ([NormalizedName]) WHERE [NormalizedName] IS NOT NULL;
+[2023-03-22 10:10:14.568 +05:30  INF]  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetUserClaims_UserId] ON [AspNetUserClaims] ([UserId]);
+[2023-03-22 10:10:14.569 +05:30  INF]  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetUserLogins_UserId] ON [AspNetUserLogins] ([UserId]);
+[2023-03-22 10:10:14.571 +05:30  INF]  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetUserRoles_RoleId] ON [AspNetUserRoles] ([RoleId]);
+[2023-03-22 10:10:14.572 +05:30  INF]  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [EmailIndex] ON [AspNetUsers] ([NormalizedEmail]);
+[2023-03-22 10:10:14.575 +05:30  INF]  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [UserNameIndex] ON [AspNetUsers] ([NormalizedUserName]) WHERE [NormalizedUserName] IS NOT NULL;
+[2023-03-22 10:10:14.576 +05:30  INF]  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_News_UserId] ON [News] ([UserId]);
+[2023-03-22 10:10:14.578 +05:30  INF]  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20230322043959_first', N'6.0.12');
+[2023-03-22 10:10:29.713 +05:30  INF]  User profile is available. Using 'C:\Users\akhil.madhu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2023-03-22 10:10:30.057 +05:30  INF]  Now listening on: http://localhost:5238
+[2023-03-22 10:10:30.061 +05:30  INF]  Application started. Press Ctrl+C to shut down.
+[2023-03-22 10:10:30.061 +05:30  INF]  Hosting environment: Development
+[2023-03-22 10:10:30.061 +05:30  INF]  Content root path: C:\Users\akhil.madhu\source\repos\Backend\Backend\
+[2023-03-22 10:10:32.204 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/swagger - -
+[2023-03-22 10:10:32.801 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/swagger - - - 301 0 - 603.1150ms
+[2023-03-22 10:10:32.827 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/swagger/index.html - -
+[2023-03-22 10:10:33.183 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/swagger/index.html - - - 200 - text/html;charset=utf-8 355.9436ms
+[2023-03-22 10:10:33.203 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/swagger/swagger-ui.css - -
+[2023-03-22 10:10:33.203 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/swagger/swagger-ui-bundle.js - -
+[2023-03-22 10:10:33.203 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/swagger/swagger-ui-standalone-preset.js - -
+[2023-03-22 10:10:33.204 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/_framework/aspnetcore-browser-refresh.js - -
+[2023-03-22 10:10:33.210 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 5.3885ms
+[2023-03-22 10:10:33.272 +05:30  INF]  Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+[2023-03-22 10:10:33.273 +05:30  INF]  Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+[2023-03-22 10:10:33.273 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/swagger/swagger-ui.css - - - 200 143632 text/css 70.6642ms
+[2023-03-22 10:10:33.273 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/swagger/swagger-ui-standalone-preset.js - - - 200 337162 application/javascript 69.9909ms
+[2023-03-22 10:10:33.275 +05:30  INF]  Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+[2023-03-22 10:10:33.275 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/_vs/browserLink - -
+[2023-03-22 10:10:33.275 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/swagger/swagger-ui-bundle.js - - - 200 1092889 application/javascript 71.3725ms
+[2023-03-22 10:10:33.417 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 142.0718ms
+[2023-03-22 10:10:33.540 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/swagger/v1/swagger.json - -
+[2023-03-22 10:10:33.575 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/swagger/favicon-32x32.png - -
+[2023-03-22 10:10:33.576 +05:30  INF]  Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+[2023-03-22 10:10:33.577 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/swagger/favicon-32x32.png - - - 200 628 image/png 1.3217ms
+[2023-03-22 10:10:33.737 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 196.7367ms
+[2023-03-22 10:10:41.005 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/api/Account/UserList - -
+[2023-03-22 10:10:41.205 +05:30  INF]  Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+[2023-03-22 10:10:41.225 +05:30  INF]  AuthenticationScheme: Bearer was challenged.
+[2023-03-22 10:10:41.225 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/api/Account/UserList - - - 401 0 - 220.1676ms
+[2023-03-22 10:29:01.924 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/token application/json 40
+[2023-03-22 10:29:01.932 +05:30  INF]  Executing endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-22 10:29:01.969 +05:30  INF]  Route matched with {action = "Post", controller = "Token"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.TokenController (Backend).
+[2023-03-22 10:29:02.278 +05:30  INF]  Executing OkObjectResult, writing value of type 'System.String'.
+[2023-03-22 10:29:02.288 +05:30  INF]  Executed action Backend.Controllers.TokenController.Post (Backend) in 311.2458ms
+[2023-03-22 10:29:02.291 +05:30  INF]  Executed endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-22 10:29:02.291 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/token application/json 40 - 200 - application/json;+charset=utf-8 367.1460ms
+[2023-03-22 10:29:02.341 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/Account/Login/ application/json 59
+[2023-03-22 10:29:02.485 +05:30  INF]  Executing endpoint 'Backend.Controllers.AccountController.Login (Backend)'
+[2023-03-22 10:29:02.489 +05:30  INF]  Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.AccountController (Backend).
+[2023-03-22 10:29:04.202 +05:30  INF]  Entity Framework Core 6.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.12' with options: None
+[2023-03-22 10:29:05.553 +05:30  INF]  Executed DbCommand (125ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+[2023-03-22 10:29:05.749 +05:30  WRN]  Invalid password for user.
+[2023-03-22 10:29:05.750 +05:30  ERR]  Login Error
+[2023-03-22 10:29:05.757 +05:30  INF]  Executing BadRequestObjectResult, writing value of type 'Backend.Core.Common.ErrorHandlers.Results`1[[Backend.Core.Data.Entities.UserModel, Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2023-03-22 10:29:05.763 +05:30  INF]  Executed action Backend.Controllers.AccountController.Login (Backend) in 3274.0541ms
+[2023-03-22 10:29:05.765 +05:30  INF]  Executed endpoint 'Backend.Controllers.AccountController.Login (Backend)'
+[2023-03-22 10:29:05.785 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/Account/Login/ application/json 59 - 400 - application/json;+charset=utf-8 3444.4025ms
+[2023-03-22 10:30:11.292 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/token application/json 40
+[2023-03-22 10:30:11.297 +05:30  INF]  Executing endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-22 10:30:11.297 +05:30  INF]  Route matched with {action = "Post", controller = "Token"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.TokenController (Backend).
+[2023-03-22 10:30:11.297 +05:30  INF]  Executing OkObjectResult, writing value of type 'System.String'.
+[2023-03-22 10:30:11.297 +05:30  INF]  Executed action Backend.Controllers.TokenController.Post (Backend) in 0.539ms
+[2023-03-22 10:30:11.297 +05:30  INF]  Executed endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-22 10:30:11.298 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/token application/json 40 - 200 - application/json;+charset=utf-8 6.1225ms
+[2023-03-22 10:30:11.304 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/Account/Login/ application/json 58
+[2023-03-22 10:30:11.306 +05:30  INF]  Executing endpoint 'Backend.Controllers.AccountController.Login (Backend)'
+[2023-03-22 10:30:11.306 +05:30  INF]  Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.AccountController (Backend).
+[2023-03-22 10:30:11.353 +05:30  INF]  Entity Framework Core 6.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.12' with options: None
+[2023-03-22 10:30:11.365 +05:30  INF]  Executed DbCommand (6ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+[2023-03-22 10:30:11.471 +05:30  INF]  Executed DbCommand (3ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[Address], [u].[DOB], [u].[DOJ], [u].[FirstName], [u].[Gender], [u].[Image], [u].[LastName], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Users] AS [u]
+INNER JOIN [AspNetUsers] AS [a] ON [u].[UserId] = [a].[Id]
+WHERE [u].[UserId] = @__user_Id_0
+[2023-03-22 10:30:11.471 +05:30  INF]  Executing OkObjectResult, writing value of type 'Backend.Core.Common.ErrorHandlers.Results`1[[Backend.Core.Data.Entities.UserModel, Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2023-03-22 10:30:11.471 +05:30  INF]  Executed action Backend.Controllers.AccountController.Login (Backend) in 165.5665ms
+[2023-03-22 10:30:11.471 +05:30  INF]  Executed endpoint 'Backend.Controllers.AccountController.Login (Backend)'
+[2023-03-22 10:30:11.472 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/Account/Login/ application/json 58 - 200 - application/json;+charset=utf-8 167.2296ms
+[2023-03-22 10:30:21.590 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/token application/json 40
+[2023-03-22 10:30:21.590 +05:30  INF]  Executing endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-22 10:30:21.590 +05:30  INF]  Route matched with {action = "Post", controller = "Token"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.TokenController (Backend).
+[2023-03-22 10:30:21.592 +05:30  INF]  Executing OkObjectResult, writing value of type 'System.String'.
+[2023-03-22 10:30:21.592 +05:30  INF]  Executed action Backend.Controllers.TokenController.Post (Backend) in 1.4072ms
+[2023-03-22 10:30:21.592 +05:30  INF]  Executed endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-22 10:30:21.592 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/token application/json 40 - 200 - application/json;+charset=utf-8 2.2636ms
+[2023-03-22 10:30:21.603 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/Account/Login/ application/json 58
+[2023-03-22 10:30:21.604 +05:30  INF]  Executing endpoint 'Backend.Controllers.AccountController.Login (Backend)'
+[2023-03-22 10:30:21.604 +05:30  INF]  Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.AccountController (Backend).
+[2023-03-22 10:30:21.617 +05:30  INF]  Entity Framework Core 6.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.12' with options: None
+[2023-03-22 10:30:21.621 +05:30  INF]  Executed DbCommand (3ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+[2023-03-22 10:30:21.625 +05:30  INF]  Executed DbCommand (2ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[Address], [u].[DOB], [u].[DOJ], [u].[FirstName], [u].[Gender], [u].[Image], [u].[LastName], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Users] AS [u]
+INNER JOIN [AspNetUsers] AS [a] ON [u].[UserId] = [a].[Id]
+WHERE [u].[UserId] = @__user_Id_0
+[2023-03-22 10:30:21.625 +05:30  INF]  Executing OkObjectResult, writing value of type 'Backend.Core.Common.ErrorHandlers.Results`1[[Backend.Core.Data.Entities.UserModel, Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2023-03-22 10:30:21.625 +05:30  INF]  Executed action Backend.Controllers.AccountController.Login (Backend) in 21.7349ms
+[2023-03-22 10:30:21.626 +05:30  INF]  Executed endpoint 'Backend.Controllers.AccountController.Login (Backend)'
+[2023-03-22 10:30:21.626 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/Account/Login/ application/json 58 - 200 - application/json;+charset=utf-8 22.4840ms
+[2023-03-22 10:30:30.680 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/token application/json 40
+[2023-03-22 10:30:30.681 +05:30  INF]  Executing endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-22 10:30:30.681 +05:30  INF]  Route matched with {action = "Post", controller = "Token"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.TokenController (Backend).
+[2023-03-22 10:30:30.682 +05:30  INF]  Executing OkObjectResult, writing value of type 'System.String'.
+[2023-03-22 10:30:30.682 +05:30  INF]  Executed action Backend.Controllers.TokenController.Post (Backend) in 0.6199ms
+[2023-03-22 10:30:30.682 +05:30  INF]  Executed endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-22 10:30:30.682 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/token application/json 40 - 200 - application/json;+charset=utf-8 1.4613ms
+[2023-03-22 10:30:30.693 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/Account/Login/ application/json 58
+[2023-03-22 10:30:30.694 +05:30  INF]  Executing endpoint 'Backend.Controllers.AccountController.Login (Backend)'
+[2023-03-22 10:30:30.694 +05:30  INF]  Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.AccountController (Backend).
+[2023-03-22 10:30:30.695 +05:30  INF]  Entity Framework Core 6.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.12' with options: None
+[2023-03-22 10:30:30.701 +05:30  INF]  Executed DbCommand (5ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+[2023-03-22 10:30:30.706 +05:30  INF]  Executed DbCommand (3ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[Address], [u].[DOB], [u].[DOJ], [u].[FirstName], [u].[Gender], [u].[Image], [u].[LastName], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Users] AS [u]
+INNER JOIN [AspNetUsers] AS [a] ON [u].[UserId] = [a].[Id]
+WHERE [u].[UserId] = @__user_Id_0
+[2023-03-22 10:30:30.707 +05:30  INF]  Executing OkObjectResult, writing value of type 'Backend.Core.Common.ErrorHandlers.Results`1[[Backend.Core.Data.Entities.UserModel, Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2023-03-22 10:30:30.707 +05:30  INF]  Executed action Backend.Controllers.AccountController.Login (Backend) in 12.8591ms
+[2023-03-22 10:30:30.707 +05:30  INF]  Executed endpoint 'Backend.Controllers.AccountController.Login (Backend)'
+[2023-03-22 10:30:30.707 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/Account/Login/ application/json 58 - 200 - application/json;+charset=utf-8 13.9751ms
+[2023-03-22 10:31:50.494 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/token application/json 40
+[2023-03-22 10:31:50.494 +05:30  INF]  Executing endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-22 10:31:50.495 +05:30  INF]  Route matched with {action = "Post", controller = "Token"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.TokenController (Backend).
+[2023-03-22 10:31:50.495 +05:30  INF]  Executing OkObjectResult, writing value of type 'System.String'.
+[2023-03-22 10:31:50.495 +05:30  INF]  Executed action Backend.Controllers.TokenController.Post (Backend) in 0.4359ms
+[2023-03-22 10:31:50.495 +05:30  INF]  Executed endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-22 10:31:50.495 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/token application/json 40 - 200 - application/json;+charset=utf-8 0.9361ms
+[2023-03-22 10:31:50.501 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/Account/Login/ application/json 58
+[2023-03-22 10:31:50.501 +05:30  INF]  Executing endpoint 'Backend.Controllers.AccountController.Login (Backend)'
+[2023-03-22 10:31:50.501 +05:30  INF]  Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.AccountController (Backend).
+[2023-03-22 10:31:50.502 +05:30  INF]  Entity Framework Core 6.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.12' with options: None
+[2023-03-22 10:31:50.504 +05:30  INF]  Executed DbCommand (2ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+[2023-03-22 10:31:50.509 +05:30  INF]  Executed DbCommand (2ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[Address], [u].[DOB], [u].[DOJ], [u].[FirstName], [u].[Gender], [u].[Image], [u].[LastName], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Users] AS [u]
+INNER JOIN [AspNetUsers] AS [a] ON [u].[UserId] = [a].[Id]
+WHERE [u].[UserId] = @__user_Id_0
+[2023-03-22 10:31:50.510 +05:30  INF]  Executing OkObjectResult, writing value of type 'Backend.Core.Common.ErrorHandlers.Results`1[[Backend.Core.Data.Entities.UserModel, Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2023-03-22 10:31:50.510 +05:30  INF]  Executed action Backend.Controllers.AccountController.Login (Backend) in 8.4586ms
+[2023-03-22 10:31:50.510 +05:30  INF]  Executed endpoint 'Backend.Controllers.AccountController.Login (Backend)'
+[2023-03-22 10:31:50.510 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/Account/Login/ application/json 58 - 200 - application/json;+charset=utf-8 9.1111ms
+[2023-03-22 10:32:23.725 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/api/Account/UserList - -
+[2023-03-22 10:32:23.726 +05:30  INF]  Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+[2023-03-22 10:32:23.726 +05:30  INF]  AuthenticationScheme: Bearer was challenged.
+[2023-03-22 10:32:23.726 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/api/Account/UserList - - - 401 0 - 0.7576ms
+[2023-03-22 10:33:48.781 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/token application/json 40
+[2023-03-22 10:33:48.781 +05:30  INF]  Executing endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-22 10:33:48.781 +05:30  INF]  Route matched with {action = "Post", controller = "Token"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.TokenController (Backend).
+[2023-03-22 10:33:48.781 +05:30  INF]  Executing OkObjectResult, writing value of type 'System.String'.
+[2023-03-22 10:33:48.781 +05:30  INF]  Executed action Backend.Controllers.TokenController.Post (Backend) in 0.3604ms
+[2023-03-22 10:33:48.782 +05:30  INF]  Executed endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-22 10:33:48.782 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/token application/json 40 - 200 - application/json;+charset=utf-8 0.7808ms
+[2023-03-22 10:33:48.791 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/Account/Login/ application/json 58
+[2023-03-22 10:33:48.792 +05:30  INF]  Executing endpoint 'Backend.Controllers.AccountController.Login (Backend)'
+[2023-03-22 10:33:48.792 +05:30  INF]  Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.AccountController (Backend).
+[2023-03-22 10:33:53.615 +05:30  INF]  Entity Framework Core 6.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.12' with options: None
+[2023-03-22 10:33:53.637 +05:30  INF]  Executed DbCommand (22ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+[2023-03-22 10:34:11.693 +05:30  INF]  Executed DbCommand (23ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[Address], [u].[DOB], [u].[DOJ], [u].[FirstName], [u].[Gender], [u].[Image], [u].[LastName], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Users] AS [u]
+INNER JOIN [AspNetUsers] AS [a] ON [u].[UserId] = [a].[Id]
+WHERE [u].[UserId] = @__user_Id_0
+[2023-03-22 10:34:15.564 +05:30  INF]  Executing OkObjectResult, writing value of type 'Backend.Core.Common.ErrorHandlers.Results`1[[Backend.Core.Data.Entities.UserModel, Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2023-03-22 10:34:18.111 +05:30  INF]  Executed action Backend.Controllers.AccountController.Login (Backend) in 29319.0873ms
+[2023-03-22 10:34:18.111 +05:30  INF]  Executed endpoint 'Backend.Controllers.AccountController.Login (Backend)'
+[2023-03-22 10:34:18.111 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/Account/Login/ application/json 58 - 200 - application/json;+charset=utf-8 29320.0919ms
+[2023-03-22 10:42:24.333 +05:30  INF]  Entity Framework Core 6.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.12' with options: None
+[2023-03-22 10:42:35.571 +05:30  INF]  Entity Framework Core 6.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.12' with options: None
+[2023-03-22 10:42:35.860 +05:30  INF]  Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+[2023-03-22 10:42:35.881 +05:30  INF]  Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+[2023-03-22 10:42:35.884 +05:30  INF]  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+[2023-03-22 10:42:35.885 +05:30  INF]  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+[2023-03-22 10:42:35.896 +05:30  INF]  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+[2023-03-22 10:42:35.908 +05:30  INF]  Applying migration '20230322051224_second'.
+[2023-03-22 10:42:35.963 +05:30  INF]  Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE [AspNetUsers] SET [ConcurrencyStamp] = N'ed9f4f00-8761-449b-81eb-ac6b839719ba', [PasswordHash] = N'AQAAAAEAACcQAAAAEGOIyG0q5NC4VjFZfO7wDypNXItkP/CQMBVwn9k8M+KK75RHKlHAkM/Nv2L5lWvsig==', [SecurityStamp] = N'5309a05f-d6e3-42d3-a585-7051345a296c'
+WHERE [Id] = N'056f40f2-5fc9-41fb-8036-f1670e7344a3';
+SELECT @@ROWCOUNT;
+[2023-03-22 10:42:35.991 +05:30  INF]  Executed DbCommand (27ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'UserId', N'Address', N'DOB', N'DOJ', N'FirstName', N'Gender', N'Image', N'LastName') AND [object_id] = OBJECT_ID(N'[Users]'))
+    SET IDENTITY_INSERT [Users] ON;
+INSERT INTO [Users] ([UserId], [Address], [DOB], [DOJ], [FirstName], [Gender], [Image], [LastName])
+VALUES (N'056f40f2-5fc9-41fb-8036-f1670e7344a3', N'Qwerty', '2023-03-22T10:42:24.3787401+05:30', '2023-03-22T10:42:24.3787414+05:30', N'Root', N'Male', N'', N'User');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'UserId', N'Address', N'DOB', N'DOJ', N'FirstName', N'Gender', N'Image', N'LastName') AND [object_id] = OBJECT_ID(N'[Users]'))
+    SET IDENTITY_INSERT [Users] OFF;
+[2023-03-22 10:42:35.993 +05:30  INF]  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20230322051224_second', N'6.0.12');
+[2023-03-22 10:43:43.197 +05:30  INF]  User profile is available. Using 'C:\Users\akhil.madhu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2023-03-22 10:43:43.453 +05:30  INF]  Now listening on: http://localhost:5238
+[2023-03-22 10:43:43.455 +05:30  INF]  Application started. Press Ctrl+C to shut down.
+[2023-03-22 10:43:43.455 +05:30  INF]  Hosting environment: Development
+[2023-03-22 10:43:43.455 +05:30  INF]  Content root path: C:\Users\akhil.madhu\source\repos\Backend\Backend\
+[2023-03-22 10:43:44.459 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/swagger/index.html - -
+[2023-03-22 10:43:44.913 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/swagger/index.html - - - 200 - text/html;charset=utf-8 460.5923ms
+[2023-03-22 10:43:44.984 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/_framework/aspnetcore-browser-refresh.js - -
+[2023-03-22 10:43:44.996 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 12.0088ms
+[2023-03-22 10:43:45.005 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/_vs/browserLink - -
+[2023-03-22 10:43:45.049 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 43.9102ms
+[2023-03-22 10:43:45.237 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/swagger/v1/swagger.json - -
+[2023-03-22 10:43:45.412 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 174.4501ms
+[2023-03-22 10:43:56.998 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/token application/json 40
+[2023-03-22 10:43:57.124 +05:30  INF]  Executing endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-22 10:43:57.153 +05:30  INF]  Route matched with {action = "Post", controller = "Token"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.TokenController (Backend).
+[2023-03-22 10:43:57.438 +05:30  INF]  Executing OkObjectResult, writing value of type 'System.String'.
+[2023-03-22 10:43:57.448 +05:30  INF]  Executed action Backend.Controllers.TokenController.Post (Backend) in 287.6274ms
+[2023-03-22 10:43:57.450 +05:30  INF]  Executed endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-22 10:43:57.450 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/token application/json 40 - 200 - application/json;+charset=utf-8 452.4869ms
+[2023-03-22 10:43:57.470 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/Account/Login/ application/json 58
+[2023-03-22 10:43:57.580 +05:30  INF]  Executing endpoint 'Backend.Controllers.AccountController.Login (Backend)'
+[2023-03-22 10:43:57.583 +05:30  INF]  Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.AccountController (Backend).
+[2023-03-22 10:44:00.537 +05:30  INF]  Entity Framework Core 6.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.12' with options: None
+[2023-03-22 10:44:01.802 +05:30  INF]  Executed DbCommand (116ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+[2023-03-22 10:44:01.981 +05:30  WRN]  Invalid password for user.
+[2023-03-22 10:44:01.981 +05:30  ERR]  Login Error
+[2023-03-22 10:44:01.986 +05:30  INF]  Executing BadRequestObjectResult, writing value of type 'Backend.Core.Common.ErrorHandlers.Results`1[[Backend.Core.Data.Entities.UserModel, Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2023-03-22 10:44:01.991 +05:30  INF]  Executed action Backend.Controllers.AccountController.Login (Backend) in 4407.286ms
+[2023-03-22 10:44:01.992 +05:30  INF]  Executed endpoint 'Backend.Controllers.AccountController.Login (Backend)'
+[2023-03-22 10:44:02.001 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/Account/Login/ application/json 58 - 400 - application/json;+charset=utf-8 4531.2288ms
+[2023-03-22 10:44:15.369 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/token application/json 40
+[2023-03-22 10:44:15.371 +05:30  INF]  Executing endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-22 10:44:15.371 +05:30  INF]  Route matched with {action = "Post", controller = "Token"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.TokenController (Backend).
+[2023-03-22 10:44:15.372 +05:30  INF]  Executing OkObjectResult, writing value of type 'System.String'.
+[2023-03-22 10:44:15.372 +05:30  INF]  Executed action Backend.Controllers.TokenController.Post (Backend) in 0.6535ms
+[2023-03-22 10:44:15.372 +05:30  INF]  Executed endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-22 10:44:15.372 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/token application/json 40 - 200 - application/json;+charset=utf-8 2.8402ms
+[2023-03-22 10:44:15.382 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/Account/Login/ application/json 58
+[2023-03-22 10:44:15.384 +05:30  INF]  Executing endpoint 'Backend.Controllers.AccountController.Login (Backend)'
+[2023-03-22 10:44:15.384 +05:30  INF]  Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.AccountController (Backend).
+[2023-03-22 10:44:16.593 +05:30  INF]  Entity Framework Core 6.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.12' with options: None
+[2023-03-22 10:44:16.609 +05:30  INF]  Executed DbCommand (7ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+[2023-03-22 10:44:16.696 +05:30  INF]  Executed DbCommand (2ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[Address], [u].[DOB], [u].[DOJ], [u].[FirstName], [u].[Gender], [u].[Image], [u].[LastName], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Users] AS [u]
+INNER JOIN [AspNetUsers] AS [a] ON [u].[UserId] = [a].[Id]
+WHERE [u].[UserId] = @__user_Id_0
+[2023-03-22 10:44:16.727 +05:30  INF]  Executing OkObjectResult, writing value of type 'Backend.Core.Common.ErrorHandlers.Results`1[[Backend.Core.Data.Entities.UserModel, Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2023-03-22 10:44:16.744 +05:30  INF]  Executed action Backend.Controllers.AccountController.Login (Backend) in 1359.9496ms
+[2023-03-22 10:44:16.744 +05:30  INF]  Executed endpoint 'Backend.Controllers.AccountController.Login (Backend)'
+[2023-03-22 10:44:16.744 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/Account/Login/ application/json 58 - 200 - application/json;+charset=utf-8 1362.6898ms
+[2023-03-22 10:44:16.818 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/token application/json 40
+[2023-03-22 10:44:16.818 +05:30  INF]  Executing endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-22 10:44:16.819 +05:30  INF]  Route matched with {action = "Post", controller = "Token"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.TokenController (Backend).
+[2023-03-22 10:44:16.820 +05:30  INF]  Executing OkObjectResult, writing value of type 'System.String'.
+[2023-03-22 10:44:16.820 +05:30  INF]  Executed action Backend.Controllers.TokenController.Post (Backend) in 1.2038ms
+[2023-03-22 10:44:16.820 +05:30  INF]  Executed endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-22 10:44:16.820 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/token application/json 40 - 200 - application/json;+charset=utf-8 1.6994ms
+[2023-03-22 10:44:16.827 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/api/Account/UserList/ - -
+[2023-03-22 10:44:16.835 +05:30  INF]  Executing endpoint 'Backend.Controllers.AccountController.UsersList (Backend)'
+[2023-03-22 10:44:16.838 +05:30  INF]  Route matched with {action = "UsersList", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UsersList() on controller Backend.Controllers.AccountController (Backend).
+[2023-03-22 10:44:16.852 +05:30  INF]  Entity Framework Core 6.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.12' with options: None
+[2023-03-22 10:44:16.874 +05:30  INF]  Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[UserId], [u].[Address], [u].[DOB], [u].[DOJ], [u].[FirstName], [u].[Gender], [u].[Image], [u].[LastName], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Users] AS [u]
+INNER JOIN [AspNetUsers] AS [a] ON [u].[UserId] = [a].[Id]
+[2023-03-22 10:44:16.879 +05:30  INF]  Executing OkObjectResult, writing value of type 'Backend.Core.Common.ErrorHandlers.Results`1[[System.Collections.Generic.List`1[[Backend.Core.Data.Entities.UserModel, Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2023-03-22 10:44:16.880 +05:30  INF]  Executed action Backend.Controllers.AccountController.UsersList (Backend) in 41.2869ms
+[2023-03-22 10:44:16.880 +05:30  INF]  Executed endpoint 'Backend.Controllers.AccountController.UsersList (Backend)'
+[2023-03-22 10:44:16.881 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/api/Account/UserList/ - - - 200 - application/json;+charset=utf-8 53.6024ms
+[2023-03-22 10:44:39.586 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/token application/json 40
+[2023-03-22 10:44:39.591 +05:30  INF]  Executing endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-22 10:44:39.591 +05:30  INF]  Route matched with {action = "Post", controller = "Token"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.TokenController (Backend).
+[2023-03-22 10:44:39.591 +05:30  INF]  Executing OkObjectResult, writing value of type 'System.String'.
+[2023-03-22 10:44:39.591 +05:30  INF]  Executed action Backend.Controllers.TokenController.Post (Backend) in 0.3949ms
+[2023-03-22 10:44:39.591 +05:30  INF]  Executed endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-22 10:44:39.592 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/token application/json 40 - 200 - application/json;+charset=utf-8 5.4371ms
+[2023-03-22 10:44:39.598 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/api/Account/SingleUser/?userId=056f40f2-5fc9-41fb-8036-f1670e7344a3 - -
+[2023-03-22 10:44:39.599 +05:30  INF]  Executing endpoint 'Backend.Controllers.AccountController.SingleUserDetails (Backend)'
+[2023-03-22 10:44:39.602 +05:30  INF]  Route matched with {action = "SingleUserDetails", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SingleUserDetails(System.String) on controller Backend.Controllers.AccountController (Backend).
+[2023-03-22 10:44:39.611 +05:30  INF]  Entity Framework Core 6.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.12' with options: None
+[2023-03-22 10:44:39.620 +05:30  INF]  Executed DbCommand (4ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[Address], [u].[DOB], [u].[DOJ], [u].[FirstName], [u].[Gender], [u].[Image], [u].[LastName], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Users] AS [u]
+INNER JOIN [AspNetUsers] AS [a] ON [u].[UserId] = [a].[Id]
+WHERE [u].[UserId] = @__userId_0
+[2023-03-22 10:44:39.621 +05:30  INF]  Executing OkObjectResult, writing value of type 'Backend.Core.Common.ErrorHandlers.Results`1[[Backend.Core.Data.Entities.UserModel, Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2023-03-22 10:44:39.621 +05:30  INF]  Executed action Backend.Controllers.AccountController.SingleUserDetails (Backend) in 18.9867ms
+[2023-03-22 10:44:39.621 +05:30  INF]  Executed endpoint 'Backend.Controllers.AccountController.SingleUserDetails (Backend)'
+[2023-03-22 10:44:39.622 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/api/Account/SingleUser/?userId=056f40f2-5fc9-41fb-8036-f1670e7344a3 - - - 200 - application/json;+charset=utf-8 23.1872ms
+[2023-03-22 10:44:46.819 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/token application/json 40
+[2023-03-22 10:44:46.820 +05:30  INF]  Executing endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-22 10:44:46.820 +05:30  INF]  Route matched with {action = "Post", controller = "Token"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.TokenController (Backend).
+[2023-03-22 10:44:46.820 +05:30  INF]  Executing OkObjectResult, writing value of type 'System.String'.
+[2023-03-22 10:44:46.821 +05:30  INF]  Executed action Backend.Controllers.TokenController.Post (Backend) in 0.5735ms
+[2023-03-22 10:44:46.821 +05:30  INF]  Executed endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-22 10:44:46.821 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/token application/json 40 - 200 - application/json;+charset=utf-8 1.4654ms
+[2023-03-22 10:44:46.835 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/api/Account/SingleUser/?userId=056f40f2-5fc9-41fb-8036-f1670e7344a3 - -
+[2023-03-22 10:44:46.836 +05:30  INF]  Executing endpoint 'Backend.Controllers.AccountController.SingleUserDetails (Backend)'
+[2023-03-22 10:44:46.836 +05:30  INF]  Route matched with {action = "SingleUserDetails", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SingleUserDetails(System.String) on controller Backend.Controllers.AccountController (Backend).
+[2023-03-22 10:44:46.837 +05:30  INF]  Entity Framework Core 6.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.12' with options: None
+[2023-03-22 10:44:46.842 +05:30  INF]  Executed DbCommand (5ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[Address], [u].[DOB], [u].[DOJ], [u].[FirstName], [u].[Gender], [u].[Image], [u].[LastName], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Users] AS [u]
+INNER JOIN [AspNetUsers] AS [a] ON [u].[UserId] = [a].[Id]
+WHERE [u].[UserId] = @__userId_0
+[2023-03-22 10:44:46.847 +05:30  INF]  Executing OkObjectResult, writing value of type 'Backend.Core.Common.ErrorHandlers.Results`1[[Backend.Core.Data.Entities.UserModel, Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2023-03-22 10:44:46.848 +05:30  INF]  Executed action Backend.Controllers.AccountController.SingleUserDetails (Backend) in 11.8178ms
+[2023-03-22 10:44:46.848 +05:30  INF]  Executed endpoint 'Backend.Controllers.AccountController.SingleUserDetails (Backend)'
+[2023-03-22 10:44:46.848 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/api/Account/SingleUser/?userId=056f40f2-5fc9-41fb-8036-f1670e7344a3 - - - 200 - application/json;+charset=utf-8 13.2616ms
+[2023-03-22 10:44:50.373 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/token application/json 40
+[2023-03-22 10:44:50.374 +05:30  INF]  Executing endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-22 10:44:50.374 +05:30  INF]  Route matched with {action = "Post", controller = "Token"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.TokenController (Backend).
+[2023-03-22 10:44:50.375 +05:30  INF]  Executing OkObjectResult, writing value of type 'System.String'.
+[2023-03-22 10:44:50.375 +05:30  INF]  Executed action Backend.Controllers.TokenController.Post (Backend) in 0.8486ms
+[2023-03-22 10:44:50.375 +05:30  INF]  Executed endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-22 10:44:50.375 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/token application/json 40 - 200 - application/json;+charset=utf-8 2.2887ms
+[2023-03-22 10:44:50.384 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/api/Account/SingleUser/?userId=056f40f2-5fc9-41fb-8036-f1670e7344a3 - -
+[2023-03-22 10:44:50.384 +05:30  INF]  Executing endpoint 'Backend.Controllers.AccountController.SingleUserDetails (Backend)'
+[2023-03-22 10:44:50.384 +05:30  INF]  Route matched with {action = "SingleUserDetails", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SingleUserDetails(System.String) on controller Backend.Controllers.AccountController (Backend).
+[2023-03-22 10:44:50.385 +05:30  INF]  Entity Framework Core 6.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.12' with options: None
+[2023-03-22 10:44:50.388 +05:30  INF]  Executed DbCommand (3ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[Address], [u].[DOB], [u].[DOJ], [u].[FirstName], [u].[Gender], [u].[Image], [u].[LastName], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Users] AS [u]
+INNER JOIN [AspNetUsers] AS [a] ON [u].[UserId] = [a].[Id]
+WHERE [u].[UserId] = @__userId_0
+[2023-03-22 10:44:50.388 +05:30  INF]  Executing OkObjectResult, writing value of type 'Backend.Core.Common.ErrorHandlers.Results`1[[Backend.Core.Data.Entities.UserModel, Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2023-03-22 10:44:50.389 +05:30  INF]  Executed action Backend.Controllers.AccountController.SingleUserDetails (Backend) in 4.1455ms
+[2023-03-22 10:44:50.389 +05:30  INF]  Executed endpoint 'Backend.Controllers.AccountController.SingleUserDetails (Backend)'
+[2023-03-22 10:44:50.389 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/api/Account/SingleUser/?userId=056f40f2-5fc9-41fb-8036-f1670e7344a3 - - - 200 - application/json;+charset=utf-8 5.3501ms
+[2023-03-22 10:45:01.218 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/token application/json 40
+[2023-03-22 10:45:01.218 +05:30  INF]  Executing endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-22 10:45:01.218 +05:30  INF]  Route matched with {action = "Post", controller = "Token"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.TokenController (Backend).
+[2023-03-22 10:45:01.219 +05:30  INF]  Executing OkObjectResult, writing value of type 'System.String'.
+[2023-03-22 10:45:01.219 +05:30  INF]  Executed action Backend.Controllers.TokenController.Post (Backend) in 0.5705ms
+[2023-03-22 10:45:01.219 +05:30  INF]  Executed endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-22 10:45:01.219 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/token application/json 40 - 200 - application/json;+charset=utf-8 1.7158ms
+[2023-03-22 10:45:01.229 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/api/Account/UserList/ - -
+[2023-03-22 10:45:01.229 +05:30  INF]  Executing endpoint 'Backend.Controllers.AccountController.UsersList (Backend)'
+[2023-03-22 10:45:01.230 +05:30  INF]  Route matched with {action = "UsersList", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UsersList() on controller Backend.Controllers.AccountController (Backend).
+[2023-03-22 10:45:01.230 +05:30  INF]  Executing OkObjectResult, writing value of type 'Backend.Core.Common.ErrorHandlers.Results`1[[System.Collections.Generic.List`1[[Backend.Core.Data.Entities.UserModel, Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2023-03-22 10:45:01.231 +05:30  INF]  Executed action Backend.Controllers.AccountController.UsersList (Backend) in 0.9513ms
+[2023-03-22 10:45:01.231 +05:30  INF]  Executed endpoint 'Backend.Controllers.AccountController.UsersList (Backend)'
+[2023-03-22 10:45:01.231 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/api/Account/UserList/ - - - 200 - application/json;+charset=utf-8 1.8340ms
+[2023-03-22 10:45:06.151 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/token application/json 40
+[2023-03-22 10:45:06.151 +05:30  INF]  Executing endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-22 10:45:06.151 +05:30  INF]  Route matched with {action = "Post", controller = "Token"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.TokenController (Backend).
+[2023-03-22 10:45:06.152 +05:30  INF]  Executing OkObjectResult, writing value of type 'System.String'.
+[2023-03-22 10:45:06.152 +05:30  INF]  Executed action Backend.Controllers.TokenController.Post (Backend) in 0.4334ms
+[2023-03-22 10:45:06.152 +05:30  INF]  Executed endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-22 10:45:06.152 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/token application/json 40 - 200 - application/json;+charset=utf-8 0.9259ms
+[2023-03-22 10:45:06.159 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/api/Account/UserList/ - -
+[2023-03-22 10:45:06.159 +05:30  INF]  Executing endpoint 'Backend.Controllers.AccountController.UsersList (Backend)'
+[2023-03-22 10:45:06.160 +05:30  INF]  Route matched with {action = "UsersList", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UsersList() on controller Backend.Controllers.AccountController (Backend).
+[2023-03-22 10:45:06.160 +05:30  INF]  Executing OkObjectResult, writing value of type 'Backend.Core.Common.ErrorHandlers.Results`1[[System.Collections.Generic.List`1[[Backend.Core.Data.Entities.UserModel, Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2023-03-22 10:45:06.160 +05:30  INF]  Executed action Backend.Controllers.AccountController.UsersList (Backend) in 0.2729ms
+[2023-03-22 10:45:06.160 +05:30  INF]  Executed endpoint 'Backend.Controllers.AccountController.UsersList (Backend)'
+[2023-03-22 10:45:06.160 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/api/Account/UserList/ - - - 200 - application/json;+charset=utf-8 0.9483ms
+[2023-03-22 10:45:06.714 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/token application/json 40
+[2023-03-22 10:45:06.714 +05:30  INF]  Executing endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-22 10:45:06.714 +05:30  INF]  Route matched with {action = "Post", controller = "Token"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.TokenController (Backend).
+[2023-03-22 10:45:06.715 +05:30  INF]  Executing OkObjectResult, writing value of type 'System.String'.
+[2023-03-22 10:45:06.715 +05:30  INF]  Executed action Backend.Controllers.TokenController.Post (Backend) in 0.4127ms
+[2023-03-22 10:45:06.715 +05:30  INF]  Executed endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-22 10:45:06.715 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/token application/json 40 - 200 - application/json;+charset=utf-8 0.9125ms
+[2023-03-22 10:45:06.723 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/api/Account/UserList/ - -
+[2023-03-22 10:45:06.726 +05:30  INF]  Executing endpoint 'Backend.Controllers.AccountController.UsersList (Backend)'
+[2023-03-22 10:45:06.726 +05:30  INF]  Route matched with {action = "UsersList", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UsersList() on controller Backend.Controllers.AccountController (Backend).
+[2023-03-22 10:45:06.727 +05:30  INF]  Executing OkObjectResult, writing value of type 'Backend.Core.Common.ErrorHandlers.Results`1[[System.Collections.Generic.List`1[[Backend.Core.Data.Entities.UserModel, Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2023-03-22 10:45:06.727 +05:30  INF]  Executed action Backend.Controllers.AccountController.UsersList (Backend) in 0.7202ms
+[2023-03-22 10:45:06.727 +05:30  INF]  Executed endpoint 'Backend.Controllers.AccountController.UsersList (Backend)'
+[2023-03-22 10:45:06.727 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/api/Account/UserList/ - - - 200 - application/json;+charset=utf-8 3.5497ms
+[2023-03-22 10:45:06.986 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/token application/json 40
+[2023-03-22 10:45:06.986 +05:30  INF]  Executing endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-22 10:45:06.986 +05:30  INF]  Route matched with {action = "Post", controller = "Token"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.TokenController (Backend).
+[2023-03-22 10:45:06.987 +05:30  INF]  Executing OkObjectResult, writing value of type 'System.String'.
+[2023-03-22 10:45:06.987 +05:30  INF]  Executed action Backend.Controllers.TokenController.Post (Backend) in 0.5266ms
+[2023-03-22 10:45:06.987 +05:30  INF]  Executed endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-22 10:45:06.987 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/token application/json 40 - 200 - application/json;+charset=utf-8 1.2014ms
+[2023-03-22 10:45:06.995 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/api/Account/UserList/ - -
+[2023-03-22 10:45:06.995 +05:30  INF]  Executing endpoint 'Backend.Controllers.AccountController.UsersList (Backend)'
+[2023-03-22 10:45:06.995 +05:30  INF]  Route matched with {action = "UsersList", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UsersList() on controller Backend.Controllers.AccountController (Backend).
+[2023-03-22 10:45:06.995 +05:30  INF]  Executing OkObjectResult, writing value of type 'Backend.Core.Common.ErrorHandlers.Results`1[[System.Collections.Generic.List`1[[Backend.Core.Data.Entities.UserModel, Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2023-03-22 10:45:06.996 +05:30  INF]  Executed action Backend.Controllers.AccountController.UsersList (Backend) in 0.2829ms
+[2023-03-22 10:45:06.996 +05:30  INF]  Executed endpoint 'Backend.Controllers.AccountController.UsersList (Backend)'
+[2023-03-22 10:45:06.996 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/api/Account/UserList/ - - - 200 - application/json;+charset=utf-8 0.9706ms
+[2023-03-22 10:45:08.145 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/token application/json 40
+[2023-03-22 10:45:08.145 +05:30  INF]  Executing endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-22 10:45:08.145 +05:30  INF]  Route matched with {action = "Post", controller = "Token"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.TokenController (Backend).
+[2023-03-22 10:45:08.145 +05:30  INF]  Executing OkObjectResult, writing value of type 'System.String'.
+[2023-03-22 10:45:08.146 +05:30  INF]  Executed action Backend.Controllers.TokenController.Post (Backend) in 0.9061ms
+[2023-03-22 10:45:08.146 +05:30  INF]  Executed endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-22 10:45:08.146 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/token application/json 40 - 200 - application/json;+charset=utf-8 1.4924ms
+[2023-03-22 10:45:08.154 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/api/Account/SingleUser/?userId=056f40f2-5fc9-41fb-8036-f1670e7344a3 - -
+[2023-03-22 10:45:08.154 +05:30  INF]  Executing endpoint 'Backend.Controllers.AccountController.SingleUserDetails (Backend)'
+[2023-03-22 10:45:08.154 +05:30  INF]  Route matched with {action = "SingleUserDetails", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SingleUserDetails(System.String) on controller Backend.Controllers.AccountController (Backend).
+[2023-03-22 10:45:08.155 +05:30  INF]  Entity Framework Core 6.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.12' with options: None
+[2023-03-22 10:45:08.158 +05:30  INF]  Executed DbCommand (3ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[Address], [u].[DOB], [u].[DOJ], [u].[FirstName], [u].[Gender], [u].[Image], [u].[LastName], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Users] AS [u]
+INNER JOIN [AspNetUsers] AS [a] ON [u].[UserId] = [a].[Id]
+WHERE [u].[UserId] = @__userId_0
+[2023-03-22 10:45:08.158 +05:30  INF]  Executing OkObjectResult, writing value of type 'Backend.Core.Common.ErrorHandlers.Results`1[[Backend.Core.Data.Entities.UserModel, Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2023-03-22 10:45:08.159 +05:30  INF]  Executed action Backend.Controllers.AccountController.SingleUserDetails (Backend) in 4.4464ms
+[2023-03-22 10:45:08.159 +05:30  INF]  Executed endpoint 'Backend.Controllers.AccountController.SingleUserDetails (Backend)'
+[2023-03-22 10:45:08.159 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/api/Account/SingleUser/?userId=056f40f2-5fc9-41fb-8036-f1670e7344a3 - - - 200 - application/json;+charset=utf-8 5.1739ms
+[2023-03-22 10:55:45.201 +05:30  INF]  User profile is available. Using 'C:\Users\akhil.madhu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2023-03-22 10:55:45.417 +05:30  INF]  Now listening on: http://localhost:5238
+[2023-03-22 10:55:45.420 +05:30  INF]  Application started. Press Ctrl+C to shut down.
+[2023-03-22 10:55:45.420 +05:30  INF]  Hosting environment: Development
+[2023-03-22 10:55:45.420 +05:30  INF]  Content root path: C:\Users\akhil.madhu\source\repos\Backend\Backend\
+[2023-03-22 10:55:47.100 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/swagger/index.html - -
+[2023-03-22 10:55:47.553 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/swagger/index.html - - - 200 - text/html;charset=utf-8 454.3773ms
+[2023-03-22 10:55:47.580 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/_framework/aspnetcore-browser-refresh.js - -
+[2023-03-22 10:55:47.591 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 10.6419ms
+[2023-03-22 10:55:47.642 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/_vs/browserLink - -
+[2023-03-22 10:55:47.706 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 63.8378ms
+[2023-03-22 10:55:47.792 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/swagger/v1/swagger.json - -
+[2023-03-22 10:55:47.951 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 158.5303ms
+[2023-03-22 11:37:31.677 +05:30  INF]  Entity Framework Core 6.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.12' with options: None
+[2023-03-22 11:37:44.725 +05:30  INF]  Entity Framework Core 6.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.12' with options: None
+[2023-03-22 11:37:46.124 +05:30  INF]  Executed DbCommand (462ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+CREATE DATABASE [BaseFramework1];
+[2023-03-22 11:37:46.281 +05:30  INF]  Executed DbCommand (154ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [BaseFramework1] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+[2023-03-22 11:37:46.294 +05:30  INF]  Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+[2023-03-22 11:37:46.366 +05:30  INF]  Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [__EFMigrationsHistory] (
+    [MigrationId] nvarchar(150) NOT NULL,
+    [ProductVersion] nvarchar(32) NOT NULL,
+    CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+);
+[2023-03-22 11:37:46.368 +05:30  INF]  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+[2023-03-22 11:37:46.385 +05:30  INF]  Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+[2023-03-22 11:37:46.390 +05:30  INF]  Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+[2023-03-22 11:37:46.402 +05:30  INF]  Applying migration '20230322043959_first'.
+[2023-03-22 11:37:46.451 +05:30  INF]  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetRoles] (
+    [Id] nvarchar(450) NOT NULL,
+    [Name] nvarchar(256) NULL,
+    [NormalizedName] nvarchar(256) NULL,
+    [ConcurrencyStamp] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetRoles] PRIMARY KEY ([Id])
+);
+[2023-03-22 11:37:46.454 +05:30  INF]  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUsers] (
+    [Id] nvarchar(450) NOT NULL,
+    [UserName] nvarchar(256) NULL,
+    [NormalizedUserName] nvarchar(256) NULL,
+    [Email] nvarchar(256) NULL,
+    [NormalizedEmail] nvarchar(256) NULL,
+    [EmailConfirmed] bit NOT NULL,
+    [PasswordHash] nvarchar(max) NULL,
+    [SecurityStamp] nvarchar(max) NULL,
+    [ConcurrencyStamp] nvarchar(max) NULL,
+    [PhoneNumber] nvarchar(max) NULL,
+    [PhoneNumberConfirmed] bit NOT NULL,
+    [TwoFactorEnabled] bit NOT NULL,
+    [LockoutEnd] datetimeoffset NULL,
+    [LockoutEnabled] bit NOT NULL,
+    [AccessFailedCount] int NOT NULL,
+    CONSTRAINT [PK_AspNetUsers] PRIMARY KEY ([Id])
+);
+[2023-03-22 11:37:46.455 +05:30  INF]  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetRoleClaims] (
+    [Id] int NOT NULL IDENTITY,
+    [RoleId] nvarchar(450) NOT NULL,
+    [ClaimType] nvarchar(max) NULL,
+    [ClaimValue] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetRoleClaims] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_AspNetRoleClaims_AspNetRoles_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [AspNetRoles] ([Id]) ON DELETE CASCADE
+);
+[2023-03-22 11:37:46.456 +05:30  INF]  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserClaims] (
+    [Id] int NOT NULL IDENTITY,
+    [UserId] nvarchar(450) NOT NULL,
+    [ClaimType] nvarchar(max) NULL,
+    [ClaimValue] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetUserClaims] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_AspNetUserClaims_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+[2023-03-22 11:37:46.458 +05:30  INF]  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserLogins] (
+    [LoginProvider] nvarchar(450) NOT NULL,
+    [ProviderKey] nvarchar(450) NOT NULL,
+    [ProviderDisplayName] nvarchar(max) NULL,
+    [UserId] nvarchar(450) NOT NULL,
+    CONSTRAINT [PK_AspNetUserLogins] PRIMARY KEY ([LoginProvider], [ProviderKey]),
+    CONSTRAINT [FK_AspNetUserLogins_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+[2023-03-22 11:37:46.459 +05:30  INF]  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserRoles] (
+    [UserId] nvarchar(450) NOT NULL,
+    [RoleId] nvarchar(450) NOT NULL,
+    CONSTRAINT [PK_AspNetUserRoles] PRIMARY KEY ([UserId], [RoleId]),
+    CONSTRAINT [FK_AspNetUserRoles_AspNetRoles_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [AspNetRoles] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_AspNetUserRoles_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+[2023-03-22 11:37:46.462 +05:30  INF]  Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserTokens] (
+    [UserId] nvarchar(450) NOT NULL,
+    [LoginProvider] nvarchar(450) NOT NULL,
+    [Name] nvarchar(450) NOT NULL,
+    [Value] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetUserTokens] PRIMARY KEY ([UserId], [LoginProvider], [Name]),
+    CONSTRAINT [FK_AspNetUserTokens_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+[2023-03-22 11:37:46.624 +05:30  INF]  Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Users] (
+    [UserId] nvarchar(450) NOT NULL,
+    [FirstName] nvarchar(max) NOT NULL,
+    [LastName] nvarchar(max) NOT NULL,
+    [Image] nvarchar(max) NULL,
+    [DOB] datetime2 NOT NULL,
+    [DOJ] datetime2 NULL,
+    [Gender] nvarchar(max) NOT NULL,
+    [Address] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Users] PRIMARY KEY ([UserId]),
+    CONSTRAINT [FK_Users_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+[2023-03-22 11:37:46.626 +05:30  INF]  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [News] (
+    [NewsId] nvarchar(450) NOT NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    [Subject] nvarchar(max) NOT NULL,
+    [Content] nvarchar(max) NOT NULL,
+    [Image] nvarchar(max) NULL,
+    [IsActive] bit NOT NULL,
+    [IsDeleted] bit NOT NULL,
+    [UserId] nvarchar(450) NOT NULL,
+    CONSTRAINT [PK_News] PRIMARY KEY ([NewsId]),
+    CONSTRAINT [FK_News_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([UserId]) ON DELETE CASCADE
+);
+[2023-03-22 11:37:46.651 +05:30  INF]  Executed DbCommand (25ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'ConcurrencyStamp', N'Name', N'NormalizedName') AND [object_id] = OBJECT_ID(N'[AspNetRoles]'))
+    SET IDENTITY_INSERT [AspNetRoles] ON;
+INSERT INTO [AspNetRoles] ([Id], [ConcurrencyStamp], [Name], [NormalizedName])
+VALUES (N'e46f1bfb-a425-4438-831c-6e7ab5dc46bb', N'1', N'superuser', N'SUPERUSER');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'ConcurrencyStamp', N'Name', N'NormalizedName') AND [object_id] = OBJECT_ID(N'[AspNetRoles]'))
+    SET IDENTITY_INSERT [AspNetRoles] OFF;
+[2023-03-22 11:37:46.663 +05:30  INF]  Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'AccessFailedCount', N'ConcurrencyStamp', N'Email', N'EmailConfirmed', N'LockoutEnabled', N'LockoutEnd', N'NormalizedEmail', N'NormalizedUserName', N'PasswordHash', N'PhoneNumber', N'PhoneNumberConfirmed', N'SecurityStamp', N'TwoFactorEnabled', N'UserName') AND [object_id] = OBJECT_ID(N'[AspNetUsers]'))
+    SET IDENTITY_INSERT [AspNetUsers] ON;
+INSERT INTO [AspNetUsers] ([Id], [AccessFailedCount], [ConcurrencyStamp], [Email], [EmailConfirmed], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserName])
+VALUES (N'056f40f2-5fc9-41fb-8036-f1670e7344a3', 0, N'6dd60de9-199e-4dc5-92b6-d42a9514653d', N'superadmin@gmail.com', CAST(0 AS bit), CAST(0 AS bit), NULL, N'SUPERADMIN@GMAIL.COM', N'SUPERADMIN@GMAIL.COM', N'AQAAAAEAACcQAAAAEIAZBs7X/9KBOo3SLgx72eVdBLyFnBbvzwrs1p5jPCvUbX+zFmkZiVM00IN9u0lHtw==', N'1234567890', CAST(0 AS bit), N'4ee39153-ca7a-4f41-96cb-c9fd651fae7d', CAST(0 AS bit), N'superadmin@gmail.com');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'AccessFailedCount', N'ConcurrencyStamp', N'Email', N'EmailConfirmed', N'LockoutEnabled', N'LockoutEnd', N'NormalizedEmail', N'NormalizedUserName', N'PasswordHash', N'PhoneNumber', N'PhoneNumberConfirmed', N'SecurityStamp', N'TwoFactorEnabled', N'UserName') AND [object_id] = OBJECT_ID(N'[AspNetUsers]'))
+    SET IDENTITY_INSERT [AspNetUsers] OFF;
+[2023-03-22 11:37:46.674 +05:30  INF]  Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'RoleId', N'UserId') AND [object_id] = OBJECT_ID(N'[AspNetUserRoles]'))
+    SET IDENTITY_INSERT [AspNetUserRoles] ON;
+INSERT INTO [AspNetUserRoles] ([RoleId], [UserId])
+VALUES (N'e46f1bfb-a425-4438-831c-6e7ab5dc46bb', N'056f40f2-5fc9-41fb-8036-f1670e7344a3');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'RoleId', N'UserId') AND [object_id] = OBJECT_ID(N'[AspNetUserRoles]'))
+    SET IDENTITY_INSERT [AspNetUserRoles] OFF;
+[2023-03-22 11:37:46.676 +05:30  INF]  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetRoleClaims_RoleId] ON [AspNetRoleClaims] ([RoleId]);
+[2023-03-22 11:37:46.684 +05:30  INF]  Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [RoleNameIndex] ON [AspNetRoles] ([NormalizedName]) WHERE [NormalizedName] IS NOT NULL;
+[2023-03-22 11:37:46.686 +05:30  INF]  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetUserClaims_UserId] ON [AspNetUserClaims] ([UserId]);
+[2023-03-22 11:37:46.687 +05:30  INF]  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetUserLogins_UserId] ON [AspNetUserLogins] ([UserId]);
+[2023-03-22 11:37:46.690 +05:30  INF]  Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetUserRoles_RoleId] ON [AspNetUserRoles] ([RoleId]);
+[2023-03-22 11:37:46.693 +05:30  INF]  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [EmailIndex] ON [AspNetUsers] ([NormalizedEmail]);
+[2023-03-22 11:37:46.696 +05:30  INF]  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [UserNameIndex] ON [AspNetUsers] ([NormalizedUserName]) WHERE [NormalizedUserName] IS NOT NULL;
+[2023-03-22 11:37:46.697 +05:30  INF]  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_News_UserId] ON [News] ([UserId]);
+[2023-03-22 11:37:46.699 +05:30  INF]  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20230322043959_first', N'6.0.12');
+[2023-03-22 11:37:46.703 +05:30  INF]  Applying migration '20230322051224_second'.
+[2023-03-22 11:37:46.719 +05:30  INF]  Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE [AspNetUsers] SET [ConcurrencyStamp] = N'ed9f4f00-8761-449b-81eb-ac6b839719ba', [PasswordHash] = N'AQAAAAEAACcQAAAAEGOIyG0q5NC4VjFZfO7wDypNXItkP/CQMBVwn9k8M+KK75RHKlHAkM/Nv2L5lWvsig==', [SecurityStamp] = N'5309a05f-d6e3-42d3-a585-7051345a296c'
+WHERE [Id] = N'056f40f2-5fc9-41fb-8036-f1670e7344a3';
+SELECT @@ROWCOUNT;
+[2023-03-22 11:37:46.736 +05:30  INF]  Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'UserId', N'Address', N'DOB', N'DOJ', N'FirstName', N'Gender', N'Image', N'LastName') AND [object_id] = OBJECT_ID(N'[Users]'))
+    SET IDENTITY_INSERT [Users] ON;
+INSERT INTO [Users] ([UserId], [Address], [DOB], [DOJ], [FirstName], [Gender], [Image], [LastName])
+VALUES (N'056f40f2-5fc9-41fb-8036-f1670e7344a3', N'Qwerty', '2023-03-22T10:42:24.3787401+05:30', '2023-03-22T10:42:24.3787414+05:30', N'Root', N'Male', N'', N'User');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'UserId', N'Address', N'DOB', N'DOJ', N'FirstName', N'Gender', N'Image', N'LastName') AND [object_id] = OBJECT_ID(N'[Users]'))
+    SET IDENTITY_INSERT [Users] OFF;
+[2023-03-22 11:37:46.736 +05:30  INF]  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20230322051224_second', N'6.0.12');
+[2023-03-22 11:37:46.737 +05:30  INF]  Applying migration '20230322060732_trial'.
+[2023-03-22 11:37:46.746 +05:30  INF]  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Comments] (
+    [UserId] nvarchar(450) NOT NULL,
+    [ContentId] nvarchar(450) NOT NULL,
+    [Comment] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Comments] PRIMARY KEY ([UserId], [ContentId])
+);
+[2023-03-22 11:37:46.747 +05:30  INF]  Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE [AspNetUsers] SET [ConcurrencyStamp] = N'79920219-e1e7-440f-8aa1-d3704e0ba365', [PasswordHash] = N'AQAAAAEAACcQAAAAEIOYXnaX+/5JNfmktgEcSShvdGIVAz/4/nV/LXDFlWec8RkVKadC/5PIJjVtoQO6Eg==', [SecurityStamp] = N'e2015ec6-8211-4649-a162-ae91b634a405'
+WHERE [Id] = N'056f40f2-5fc9-41fb-8036-f1670e7344a3';
+SELECT @@ROWCOUNT;
+[2023-03-22 11:37:46.750 +05:30  INF]  Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE [Users] SET [DOB] = '2023-03-22T11:37:31.7271228+05:30', [DOJ] = '2023-03-22T11:37:31.7271237+05:30'
+WHERE [UserId] = N'056f40f2-5fc9-41fb-8036-f1670e7344a3';
+SELECT @@ROWCOUNT;
+[2023-03-22 11:37:46.750 +05:30  INF]  Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20230322060732_trial', N'6.0.12');
+[2023-03-22 11:48:52.850 +05:30  INF]  User profile is available. Using 'C:\Users\akhil.madhu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2023-03-22 11:48:53.216 +05:30  INF]  Now listening on: http://localhost:5238
+[2023-03-22 11:48:53.220 +05:30  INF]  Application started. Press Ctrl+C to shut down.
+[2023-03-22 11:48:53.220 +05:30  INF]  Hosting environment: Development
+[2023-03-22 11:48:53.220 +05:30  INF]  Content root path: C:\Users\akhil.madhu\source\repos\Backend\Backend\
+[2023-03-22 11:48:54.568 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/swagger/index.html - -
+[2023-03-22 11:48:55.540 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/swagger/index.html - - - 200 - text/html;charset=utf-8 977.7516ms
+[2023-03-22 11:48:55.610 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/_framework/aspnetcore-browser-refresh.js - -
+[2023-03-22 11:48:55.616 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 5.8196ms
+[2023-03-22 11:48:55.622 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/_vs/browserLink - -
+[2023-03-22 11:48:55.661 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 39.6410ms
+[2023-03-22 11:48:55.763 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/swagger/v1/swagger.json - -
+[2023-03-22 11:48:55.910 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 146.3881ms
+[2023-03-22 11:52:35.630 +05:30  INF]  User profile is available. Using 'C:\Users\akhil.madhu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2023-03-22 11:52:35.949 +05:30  INF]  Now listening on: http://localhost:5238
+[2023-03-22 11:52:35.953 +05:30  INF]  Application started. Press Ctrl+C to shut down.
+[2023-03-22 11:52:35.953 +05:30  INF]  Hosting environment: Development
+[2023-03-22 11:52:35.954 +05:30  INF]  Content root path: C:\Users\akhil.madhu\source\repos\Backend\Backend\
+[2023-03-22 11:52:37.865 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/swagger/index.html - -
+[2023-03-22 11:52:38.398 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/swagger/index.html - - - 200 - text/html;charset=utf-8 538.2691ms
+[2023-03-22 11:52:38.468 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/_framework/aspnetcore-browser-refresh.js - -
+[2023-03-22 11:52:38.474 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 6.2969ms
+[2023-03-22 11:52:38.480 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/_vs/browserLink - -
+[2023-03-22 11:52:38.832 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 351.9372ms
+[2023-03-22 11:52:39.667 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/swagger/v1/swagger.json - -
+[2023-03-22 11:52:39.804 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 137.2490ms
+[2023-03-22 11:56:55.658 +05:30  INF]  Entity Framework Core 6.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.12' with options: None
+[2023-03-22 11:57:15.478 +05:30  INF]  Entity Framework Core 6.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.12' with options: None
+[2023-03-22 11:57:16.707 +05:30  INF]  Executed DbCommand (410ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+CREATE DATABASE [BaseFramework1];
+[2023-03-22 11:57:16.786 +05:30  INF]  Executed DbCommand (76ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [BaseFramework1] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+[2023-03-22 11:57:16.796 +05:30  INF]  Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+[2023-03-22 11:57:16.866 +05:30  INF]  Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [__EFMigrationsHistory] (
+    [MigrationId] nvarchar(150) NOT NULL,
+    [ProductVersion] nvarchar(32) NOT NULL,
+    CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+);
+[2023-03-22 11:57:16.868 +05:30  INF]  Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+[2023-03-22 11:57:16.883 +05:30  INF]  Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+[2023-03-22 11:57:16.887 +05:30  INF]  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+[2023-03-22 11:57:16.899 +05:30  INF]  Applying migration '20230322062655_a'.
+[2023-03-22 11:57:16.946 +05:30  INF]  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetRoles] (
+    [Id] nvarchar(450) NOT NULL,
+    [Name] nvarchar(256) NULL,
+    [NormalizedName] nvarchar(256) NULL,
+    [ConcurrencyStamp] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetRoles] PRIMARY KEY ([Id])
+);
+[2023-03-22 11:57:16.947 +05:30  INF]  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUsers] (
+    [Id] nvarchar(450) NOT NULL,
+    [UserName] nvarchar(256) NULL,
+    [NormalizedUserName] nvarchar(256) NULL,
+    [Email] nvarchar(256) NULL,
+    [NormalizedEmail] nvarchar(256) NULL,
+    [EmailConfirmed] bit NOT NULL,
+    [PasswordHash] nvarchar(max) NULL,
+    [SecurityStamp] nvarchar(max) NULL,
+    [ConcurrencyStamp] nvarchar(max) NULL,
+    [PhoneNumber] nvarchar(max) NULL,
+    [PhoneNumberConfirmed] bit NOT NULL,
+    [TwoFactorEnabled] bit NOT NULL,
+    [LockoutEnd] datetimeoffset NULL,
+    [LockoutEnabled] bit NOT NULL,
+    [AccessFailedCount] int NOT NULL,
+    CONSTRAINT [PK_AspNetUsers] PRIMARY KEY ([Id])
+);
+[2023-03-22 11:57:16.948 +05:30  INF]  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Comments] (
+    [CommentId] uniqueidentifier NOT NULL,
+    [UserId] nvarchar(max) NOT NULL,
+    [ContentId] nvarchar(max) NOT NULL,
+    [Comment] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Comments] PRIMARY KEY ([CommentId])
+);
+[2023-03-22 11:57:16.949 +05:30  INF]  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetRoleClaims] (
+    [Id] int NOT NULL IDENTITY,
+    [RoleId] nvarchar(450) NOT NULL,
+    [ClaimType] nvarchar(max) NULL,
+    [ClaimValue] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetRoleClaims] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_AspNetRoleClaims_AspNetRoles_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [AspNetRoles] ([Id]) ON DELETE CASCADE
+);
+[2023-03-22 11:57:16.950 +05:30  INF]  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserClaims] (
+    [Id] int NOT NULL IDENTITY,
+    [UserId] nvarchar(450) NOT NULL,
+    [ClaimType] nvarchar(max) NULL,
+    [ClaimValue] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetUserClaims] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_AspNetUserClaims_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+[2023-03-22 11:57:16.952 +05:30  INF]  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserLogins] (
+    [LoginProvider] nvarchar(450) NOT NULL,
+    [ProviderKey] nvarchar(450) NOT NULL,
+    [ProviderDisplayName] nvarchar(max) NULL,
+    [UserId] nvarchar(450) NOT NULL,
+    CONSTRAINT [PK_AspNetUserLogins] PRIMARY KEY ([LoginProvider], [ProviderKey]),
+    CONSTRAINT [FK_AspNetUserLogins_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+[2023-03-22 11:57:16.954 +05:30  INF]  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserRoles] (
+    [UserId] nvarchar(450) NOT NULL,
+    [RoleId] nvarchar(450) NOT NULL,
+    CONSTRAINT [PK_AspNetUserRoles] PRIMARY KEY ([UserId], [RoleId]),
+    CONSTRAINT [FK_AspNetUserRoles_AspNetRoles_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [AspNetRoles] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_AspNetUserRoles_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+[2023-03-22 11:57:16.955 +05:30  INF]  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserTokens] (
+    [UserId] nvarchar(450) NOT NULL,
+    [LoginProvider] nvarchar(450) NOT NULL,
+    [Name] nvarchar(450) NOT NULL,
+    [Value] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetUserTokens] PRIMARY KEY ([UserId], [LoginProvider], [Name]),
+    CONSTRAINT [FK_AspNetUserTokens_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+[2023-03-22 11:57:16.957 +05:30  INF]  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Users] (
+    [UserId] nvarchar(450) NOT NULL,
+    [FirstName] nvarchar(max) NOT NULL,
+    [LastName] nvarchar(max) NOT NULL,
+    [Image] nvarchar(max) NULL,
+    [DOB] datetime2 NOT NULL,
+    [DOJ] datetime2 NULL,
+    [Gender] nvarchar(max) NOT NULL,
+    [Address] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Users] PRIMARY KEY ([UserId]),
+    CONSTRAINT [FK_Users_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+[2023-03-22 11:57:16.958 +05:30  INF]  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Advertisements] (
+    [AdvertisementId] uniqueidentifier NOT NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    [Subject] nvarchar(max) NOT NULL,
+    [Content] nvarchar(max) NOT NULL,
+    [IsActive] bit NOT NULL,
+    [IsDeleted] bit NOT NULL,
+    [UserId] nvarchar(450) NOT NULL,
+    CONSTRAINT [PK_Advertisements] PRIMARY KEY ([AdvertisementId]),
+    CONSTRAINT [FK_Advertisements_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([UserId]) ON DELETE CASCADE
+);
+[2023-03-22 11:57:16.959 +05:30  INF]  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [News] (
+    [NewsId] nvarchar(450) NOT NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    [Subject] nvarchar(max) NOT NULL,
+    [Content] nvarchar(max) NOT NULL,
+    [Image] nvarchar(max) NULL,
+    [IsActive] bit NOT NULL,
+    [IsDeleted] bit NOT NULL,
+    [UserId] nvarchar(450) NOT NULL,
+    CONSTRAINT [PK_News] PRIMARY KEY ([NewsId]),
+    CONSTRAINT [FK_News_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([UserId]) ON DELETE CASCADE
+);
+[2023-03-22 11:57:16.977 +05:30  INF]  Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'ConcurrencyStamp', N'Name', N'NormalizedName') AND [object_id] = OBJECT_ID(N'[AspNetRoles]'))
+    SET IDENTITY_INSERT [AspNetRoles] ON;
+INSERT INTO [AspNetRoles] ([Id], [ConcurrencyStamp], [Name], [NormalizedName])
+VALUES (N'e46f1bfb-a425-4438-831c-6e7ab5dc46bb', N'1', N'superuser', N'SUPERUSER');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'ConcurrencyStamp', N'Name', N'NormalizedName') AND [object_id] = OBJECT_ID(N'[AspNetRoles]'))
+    SET IDENTITY_INSERT [AspNetRoles] OFF;
+[2023-03-22 11:57:16.989 +05:30  INF]  Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'AccessFailedCount', N'ConcurrencyStamp', N'Email', N'EmailConfirmed', N'LockoutEnabled', N'LockoutEnd', N'NormalizedEmail', N'NormalizedUserName', N'PasswordHash', N'PhoneNumber', N'PhoneNumberConfirmed', N'SecurityStamp', N'TwoFactorEnabled', N'UserName') AND [object_id] = OBJECT_ID(N'[AspNetUsers]'))
+    SET IDENTITY_INSERT [AspNetUsers] ON;
+INSERT INTO [AspNetUsers] ([Id], [AccessFailedCount], [ConcurrencyStamp], [Email], [EmailConfirmed], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserName])
+VALUES (N'056f40f2-5fc9-41fb-8036-f1670e7344a3', 0, N'1c5f9d22-6b44-44cf-a051-91f7b693dc43', N'superadmin@gmail.com', CAST(0 AS bit), CAST(0 AS bit), NULL, N'SUPERADMIN@GMAIL.COM', N'SUPERADMIN@GMAIL.COM', N'AQAAAAEAACcQAAAAEGEolK2skvS03rK2vXztQFN2h2fP24oSZwZnW223D3sl9DOK72ClEtxeIEWn66XIAw==', N'1234567890', CAST(0 AS bit), N'dbe72652-93f7-4d24-be04-24f749b6ba12', CAST(0 AS bit), N'superadmin@gmail.com');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'AccessFailedCount', N'ConcurrencyStamp', N'Email', N'EmailConfirmed', N'LockoutEnabled', N'LockoutEnd', N'NormalizedEmail', N'NormalizedUserName', N'PasswordHash', N'PhoneNumber', N'PhoneNumberConfirmed', N'SecurityStamp', N'TwoFactorEnabled', N'UserName') AND [object_id] = OBJECT_ID(N'[AspNetUsers]'))
+    SET IDENTITY_INSERT [AspNetUsers] OFF;
+[2023-03-22 11:57:16.996 +05:30  INF]  Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'RoleId', N'UserId') AND [object_id] = OBJECT_ID(N'[AspNetUserRoles]'))
+    SET IDENTITY_INSERT [AspNetUserRoles] ON;
+INSERT INTO [AspNetUserRoles] ([RoleId], [UserId])
+VALUES (N'e46f1bfb-a425-4438-831c-6e7ab5dc46bb', N'056f40f2-5fc9-41fb-8036-f1670e7344a3');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'RoleId', N'UserId') AND [object_id] = OBJECT_ID(N'[AspNetUserRoles]'))
+    SET IDENTITY_INSERT [AspNetUserRoles] OFF;
+[2023-03-22 11:57:17.005 +05:30  INF]  Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'UserId', N'Address', N'DOB', N'DOJ', N'FirstName', N'Gender', N'Image', N'LastName') AND [object_id] = OBJECT_ID(N'[Users]'))
+    SET IDENTITY_INSERT [Users] ON;
+INSERT INTO [Users] ([UserId], [Address], [DOB], [DOJ], [FirstName], [Gender], [Image], [LastName])
+VALUES (N'056f40f2-5fc9-41fb-8036-f1670e7344a3', N'Qwerty', '2023-03-22T11:56:55.7018121+05:30', '2023-03-22T11:56:55.7018132+05:30', N'Root', N'Male', N'', N'User');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'UserId', N'Address', N'DOB', N'DOJ', N'FirstName', N'Gender', N'Image', N'LastName') AND [object_id] = OBJECT_ID(N'[Users]'))
+    SET IDENTITY_INSERT [Users] OFF;
+[2023-03-22 11:57:17.006 +05:30  INF]  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Advertisements_UserId] ON [Advertisements] ([UserId]);
+[2023-03-22 11:57:17.007 +05:30  INF]  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetRoleClaims_RoleId] ON [AspNetRoleClaims] ([RoleId]);
+[2023-03-22 11:57:17.009 +05:30  INF]  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [RoleNameIndex] ON [AspNetRoles] ([NormalizedName]) WHERE [NormalizedName] IS NOT NULL;
+[2023-03-22 11:57:17.009 +05:30  INF]  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetUserClaims_UserId] ON [AspNetUserClaims] ([UserId]);
+[2023-03-22 11:57:17.010 +05:30  INF]  Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetUserLogins_UserId] ON [AspNetUserLogins] ([UserId]);
+[2023-03-22 11:57:17.011 +05:30  INF]  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetUserRoles_RoleId] ON [AspNetUserRoles] ([RoleId]);
+[2023-03-22 11:57:17.012 +05:30  INF]  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [EmailIndex] ON [AspNetUsers] ([NormalizedEmail]);
+[2023-03-22 11:57:17.015 +05:30  INF]  Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [UserNameIndex] ON [AspNetUsers] ([NormalizedUserName]) WHERE [NormalizedUserName] IS NOT NULL;
+[2023-03-22 11:57:17.017 +05:30  INF]  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_News_UserId] ON [News] ([UserId]);
+[2023-03-22 11:57:17.018 +05:30  INF]  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20230322062655_a', N'6.0.12');
+[2023-03-22 12:01:21.667 +05:30  INF]  User profile is available. Using 'C:\Users\akhil.madhu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2023-03-22 12:01:21.900 +05:30  INF]  Now listening on: http://localhost:5238
+[2023-03-22 12:01:21.902 +05:30  INF]  Application started. Press Ctrl+C to shut down.
+[2023-03-22 12:01:21.902 +05:30  INF]  Hosting environment: Development
+[2023-03-22 12:01:21.902 +05:30  INF]  Content root path: C:\Users\akhil.madhu\source\repos\Backend\Backend\
+[2023-03-22 12:01:22.941 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/swagger/index.html - -
+[2023-03-22 12:01:23.318 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/swagger/index.html - - - 200 - text/html;charset=utf-8 379.9474ms
+[2023-03-22 12:01:23.349 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/_framework/aspnetcore-browser-refresh.js - -
+[2023-03-22 12:01:23.355 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 4.9859ms
+[2023-03-22 12:01:23.392 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/_vs/browserLink - -
+[2023-03-22 12:01:23.450 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 57.3976ms
+[2023-03-22 12:01:23.527 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/swagger/v1/swagger.json - -
+[2023-03-22 12:01:23.722 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 194.7474ms
+[2023-03-22 12:01:32.472 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/api/Employee/Comments - -
+[2023-03-22 12:01:32.663 +05:30  INF]  Executing endpoint 'Backend.Controllers.EmployeeController.CreateComment (Backend)'
+[2023-03-22 12:01:32.688 +05:30  INF]  Route matched with {action = "CreateComment", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateComment() on controller Backend.Controllers.EmployeeController (Backend).
+[2023-03-22 12:01:34.441 +05:30  INF]  Entity Framework Core 6.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.12' with options: None
+[2023-03-22 12:01:35.446 +05:30  INF]  Executed DbCommand (90ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[CommentId], [c].[Comment], [c].[ContentId], [c].[UserId]
+FROM [Comments] AS [c]
+[2023-03-22 12:01:35.517 +05:30  INF]  Executing OkObjectResult, writing value of type 'Backend.Core.Common.ErrorHandlers.Results`1[[System.Collections.Generic.List`1[[Backend.Core.Data.Entities.CommentModel, Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2023-03-22 12:01:35.538 +05:30  INF]  Executed action Backend.Controllers.EmployeeController.CreateComment (Backend) in 2837.5056ms
+[2023-03-22 12:01:35.541 +05:30  INF]  Executed endpoint 'Backend.Controllers.EmployeeController.CreateComment (Backend)'
+[2023-03-22 12:01:35.552 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/api/Employee/Comments - - - 200 - application/json;+charset=utf-8 3080.2745ms
+[2023-03-22 12:07:24.117 +05:30  INF]  Entity Framework Core 6.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.12' with options: None
+[2023-03-22 12:07:30.760 +05:30  INF]  Entity Framework Core 6.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.12' with options: None
+[2023-03-22 12:07:31.041 +05:30  INF]  Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+[2023-03-22 12:07:31.063 +05:30  INF]  Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+[2023-03-22 12:07:31.067 +05:30  INF]  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+[2023-03-22 12:07:31.067 +05:30  INF]  Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+[2023-03-22 12:07:31.078 +05:30  INF]  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+[2023-03-22 12:07:31.089 +05:30  INF]  Applying migration '20230322063724_k'.
+[2023-03-22 12:07:31.134 +05:30  INF]  Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE [AspNetUsers] SET [ConcurrencyStamp] = N'396ff05f-97f5-4a8d-aff5-ab6f860cdd30', [PasswordHash] = N'AQAAAAEAACcQAAAAECC2fU2/z5Id5Hgl9I+uT48ptmyThtMHsg1Z5bT/HPjqhr+Qe9XTT6USR6PWrXoPXQ==', [SecurityStamp] = N'37d19a9c-e455-45c6-a8d9-c14f079eae35'
+WHERE [Id] = N'056f40f2-5fc9-41fb-8036-f1670e7344a3';
+SELECT @@ROWCOUNT;
+[2023-03-22 12:07:31.137 +05:30  INF]  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE [Users] SET [DOB] = '2023-03-22T12:07:24.1622376+05:30', [DOJ] = '2023-03-22T12:07:24.1622387+05:30'
+WHERE [UserId] = N'056f40f2-5fc9-41fb-8036-f1670e7344a3';
+SELECT @@ROWCOUNT;
+[2023-03-22 12:07:31.138 +05:30  INF]  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20230322063724_k', N'6.0.12');
+[2023-03-22 12:21:34.489 +05:30  INF]  Entity Framework Core 6.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.12' with options: None
+[2023-03-22 12:21:42.501 +05:30  INF]  Entity Framework Core 6.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.12' with options: None
+[2023-03-22 12:21:51.628 +05:30  INF]  Entity Framework Core 6.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.12' with options: None
+[2023-03-22 12:21:53.852 +05:30  INF]  Executed DbCommand (397ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+CREATE DATABASE [BaseFramework2];
+[2023-03-22 12:21:53.943 +05:30  INF]  Executed DbCommand (89ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [BaseFramework2] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+[2023-03-22 12:21:53.958 +05:30  INF]  Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+[2023-03-22 12:21:54.052 +05:30  INF]  Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [__EFMigrationsHistory] (
+    [MigrationId] nvarchar(150) NOT NULL,
+    [ProductVersion] nvarchar(32) NOT NULL,
+    CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+);
+[2023-03-22 12:21:54.054 +05:30  INF]  Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+[2023-03-22 12:21:54.074 +05:30  INF]  Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+[2023-03-22 12:21:54.079 +05:30  INF]  Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+[2023-03-22 12:21:54.094 +05:30  INF]  Applying migration '20230322062655_a'.
+[2023-03-22 12:21:54.151 +05:30  INF]  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetRoles] (
+    [Id] nvarchar(450) NOT NULL,
+    [Name] nvarchar(256) NULL,
+    [NormalizedName] nvarchar(256) NULL,
+    [ConcurrencyStamp] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetRoles] PRIMARY KEY ([Id])
+);
+[2023-03-22 12:21:54.152 +05:30  INF]  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUsers] (
+    [Id] nvarchar(450) NOT NULL,
+    [UserName] nvarchar(256) NULL,
+    [NormalizedUserName] nvarchar(256) NULL,
+    [Email] nvarchar(256) NULL,
+    [NormalizedEmail] nvarchar(256) NULL,
+    [EmailConfirmed] bit NOT NULL,
+    [PasswordHash] nvarchar(max) NULL,
+    [SecurityStamp] nvarchar(max) NULL,
+    [ConcurrencyStamp] nvarchar(max) NULL,
+    [PhoneNumber] nvarchar(max) NULL,
+    [PhoneNumberConfirmed] bit NOT NULL,
+    [TwoFactorEnabled] bit NOT NULL,
+    [LockoutEnd] datetimeoffset NULL,
+    [LockoutEnabled] bit NOT NULL,
+    [AccessFailedCount] int NOT NULL,
+    CONSTRAINT [PK_AspNetUsers] PRIMARY KEY ([Id])
+);
+[2023-03-22 12:21:54.154 +05:30  INF]  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Comments] (
+    [CommentId] uniqueidentifier NOT NULL,
+    [UserId] nvarchar(max) NOT NULL,
+    [ContentId] nvarchar(max) NOT NULL,
+    [Comment] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Comments] PRIMARY KEY ([CommentId])
+);
+[2023-03-22 12:21:54.155 +05:30  INF]  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetRoleClaims] (
+    [Id] int NOT NULL IDENTITY,
+    [RoleId] nvarchar(450) NOT NULL,
+    [ClaimType] nvarchar(max) NULL,
+    [ClaimValue] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetRoleClaims] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_AspNetRoleClaims_AspNetRoles_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [AspNetRoles] ([Id]) ON DELETE CASCADE
+);
+[2023-03-22 12:21:54.156 +05:30  INF]  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserClaims] (
+    [Id] int NOT NULL IDENTITY,
+    [UserId] nvarchar(450) NOT NULL,
+    [ClaimType] nvarchar(max) NULL,
+    [ClaimValue] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetUserClaims] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_AspNetUserClaims_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+[2023-03-22 12:21:54.159 +05:30  INF]  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserLogins] (
+    [LoginProvider] nvarchar(450) NOT NULL,
+    [ProviderKey] nvarchar(450) NOT NULL,
+    [ProviderDisplayName] nvarchar(max) NULL,
+    [UserId] nvarchar(450) NOT NULL,
+    CONSTRAINT [PK_AspNetUserLogins] PRIMARY KEY ([LoginProvider], [ProviderKey]),
+    CONSTRAINT [FK_AspNetUserLogins_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+[2023-03-22 12:21:54.161 +05:30  INF]  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserRoles] (
+    [UserId] nvarchar(450) NOT NULL,
+    [RoleId] nvarchar(450) NOT NULL,
+    CONSTRAINT [PK_AspNetUserRoles] PRIMARY KEY ([UserId], [RoleId]),
+    CONSTRAINT [FK_AspNetUserRoles_AspNetRoles_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [AspNetRoles] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_AspNetUserRoles_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+[2023-03-22 12:21:54.164 +05:30  INF]  Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserTokens] (
+    [UserId] nvarchar(450) NOT NULL,
+    [LoginProvider] nvarchar(450) NOT NULL,
+    [Name] nvarchar(450) NOT NULL,
+    [Value] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetUserTokens] PRIMARY KEY ([UserId], [LoginProvider], [Name]),
+    CONSTRAINT [FK_AspNetUserTokens_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+[2023-03-22 12:21:54.166 +05:30  INF]  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Users] (
+    [UserId] nvarchar(450) NOT NULL,
+    [FirstName] nvarchar(max) NOT NULL,
+    [LastName] nvarchar(max) NOT NULL,
+    [Image] nvarchar(max) NULL,
+    [DOB] datetime2 NOT NULL,
+    [DOJ] datetime2 NULL,
+    [Gender] nvarchar(max) NOT NULL,
+    [Address] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Users] PRIMARY KEY ([UserId]),
+    CONSTRAINT [FK_Users_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+[2023-03-22 12:21:54.168 +05:30  INF]  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Advertisements] (
+    [AdvertisementId] uniqueidentifier NOT NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    [Subject] nvarchar(max) NOT NULL,
+    [Content] nvarchar(max) NOT NULL,
+    [IsActive] bit NOT NULL,
+    [IsDeleted] bit NOT NULL,
+    [UserId] nvarchar(450) NOT NULL,
+    CONSTRAINT [PK_Advertisements] PRIMARY KEY ([AdvertisementId]),
+    CONSTRAINT [FK_Advertisements_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([UserId]) ON DELETE CASCADE
+);
+[2023-03-22 12:21:54.170 +05:30  INF]  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [News] (
+    [NewsId] nvarchar(450) NOT NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    [Subject] nvarchar(max) NOT NULL,
+    [Content] nvarchar(max) NOT NULL,
+    [Image] nvarchar(max) NULL,
+    [IsActive] bit NOT NULL,
+    [IsDeleted] bit NOT NULL,
+    [UserId] nvarchar(450) NOT NULL,
+    CONSTRAINT [PK_News] PRIMARY KEY ([NewsId]),
+    CONSTRAINT [FK_News_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([UserId]) ON DELETE CASCADE
+);
+[2023-03-22 12:21:54.196 +05:30  INF]  Executed DbCommand (25ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'ConcurrencyStamp', N'Name', N'NormalizedName') AND [object_id] = OBJECT_ID(N'[AspNetRoles]'))
+    SET IDENTITY_INSERT [AspNetRoles] ON;
+INSERT INTO [AspNetRoles] ([Id], [ConcurrencyStamp], [Name], [NormalizedName])
+VALUES (N'e46f1bfb-a425-4438-831c-6e7ab5dc46bb', N'1', N'superuser', N'SUPERUSER');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'ConcurrencyStamp', N'Name', N'NormalizedName') AND [object_id] = OBJECT_ID(N'[AspNetRoles]'))
+    SET IDENTITY_INSERT [AspNetRoles] OFF;
+[2023-03-22 12:21:54.206 +05:30  INF]  Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'AccessFailedCount', N'ConcurrencyStamp', N'Email', N'EmailConfirmed', N'LockoutEnabled', N'LockoutEnd', N'NormalizedEmail', N'NormalizedUserName', N'PasswordHash', N'PhoneNumber', N'PhoneNumberConfirmed', N'SecurityStamp', N'TwoFactorEnabled', N'UserName') AND [object_id] = OBJECT_ID(N'[AspNetUsers]'))
+    SET IDENTITY_INSERT [AspNetUsers] ON;
+INSERT INTO [AspNetUsers] ([Id], [AccessFailedCount], [ConcurrencyStamp], [Email], [EmailConfirmed], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserName])
+VALUES (N'056f40f2-5fc9-41fb-8036-f1670e7344a3', 0, N'1c5f9d22-6b44-44cf-a051-91f7b693dc43', N'superadmin@gmail.com', CAST(0 AS bit), CAST(0 AS bit), NULL, N'SUPERADMIN@GMAIL.COM', N'SUPERADMIN@GMAIL.COM', N'AQAAAAEAACcQAAAAEGEolK2skvS03rK2vXztQFN2h2fP24oSZwZnW223D3sl9DOK72ClEtxeIEWn66XIAw==', N'1234567890', CAST(0 AS bit), N'dbe72652-93f7-4d24-be04-24f749b6ba12', CAST(0 AS bit), N'superadmin@gmail.com');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'AccessFailedCount', N'ConcurrencyStamp', N'Email', N'EmailConfirmed', N'LockoutEnabled', N'LockoutEnd', N'NormalizedEmail', N'NormalizedUserName', N'PasswordHash', N'PhoneNumber', N'PhoneNumberConfirmed', N'SecurityStamp', N'TwoFactorEnabled', N'UserName') AND [object_id] = OBJECT_ID(N'[AspNetUsers]'))
+    SET IDENTITY_INSERT [AspNetUsers] OFF;
+[2023-03-22 12:21:54.217 +05:30  INF]  Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'RoleId', N'UserId') AND [object_id] = OBJECT_ID(N'[AspNetUserRoles]'))
+    SET IDENTITY_INSERT [AspNetUserRoles] ON;
+INSERT INTO [AspNetUserRoles] ([RoleId], [UserId])
+VALUES (N'e46f1bfb-a425-4438-831c-6e7ab5dc46bb', N'056f40f2-5fc9-41fb-8036-f1670e7344a3');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'RoleId', N'UserId') AND [object_id] = OBJECT_ID(N'[AspNetUserRoles]'))
+    SET IDENTITY_INSERT [AspNetUserRoles] OFF;
+[2023-03-22 12:21:54.228 +05:30  INF]  Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'UserId', N'Address', N'DOB', N'DOJ', N'FirstName', N'Gender', N'Image', N'LastName') AND [object_id] = OBJECT_ID(N'[Users]'))
+    SET IDENTITY_INSERT [Users] ON;
+INSERT INTO [Users] ([UserId], [Address], [DOB], [DOJ], [FirstName], [Gender], [Image], [LastName])
+VALUES (N'056f40f2-5fc9-41fb-8036-f1670e7344a3', N'Qwerty', '2023-03-22T11:56:55.7018121+05:30', '2023-03-22T11:56:55.7018132+05:30', N'Root', N'Male', N'', N'User');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'UserId', N'Address', N'DOB', N'DOJ', N'FirstName', N'Gender', N'Image', N'LastName') AND [object_id] = OBJECT_ID(N'[Users]'))
+    SET IDENTITY_INSERT [Users] OFF;
+[2023-03-22 12:21:54.230 +05:30  INF]  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Advertisements_UserId] ON [Advertisements] ([UserId]);
+[2023-03-22 12:21:54.230 +05:30  INF]  Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetRoleClaims_RoleId] ON [AspNetRoleClaims] ([RoleId]);
+[2023-03-22 12:21:54.233 +05:30  INF]  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [RoleNameIndex] ON [AspNetRoles] ([NormalizedName]) WHERE [NormalizedName] IS NOT NULL;
+[2023-03-22 12:21:54.234 +05:30  INF]  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetUserClaims_UserId] ON [AspNetUserClaims] ([UserId]);
+[2023-03-22 12:21:54.235 +05:30  INF]  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetUserLogins_UserId] ON [AspNetUserLogins] ([UserId]);
+[2023-03-22 12:21:54.237 +05:30  INF]  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetUserRoles_RoleId] ON [AspNetUserRoles] ([RoleId]);
+[2023-03-22 12:21:54.239 +05:30  INF]  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [EmailIndex] ON [AspNetUsers] ([NormalizedEmail]);
+[2023-03-22 12:21:54.242 +05:30  INF]  Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [UserNameIndex] ON [AspNetUsers] ([NormalizedUserName]) WHERE [NormalizedUserName] IS NOT NULL;
+[2023-03-22 12:21:54.243 +05:30  INF]  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_News_UserId] ON [News] ([UserId]);
+[2023-03-22 12:21:54.245 +05:30  INF]  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20230322062655_a', N'6.0.12');
+[2023-03-22 12:21:54.249 +05:30  INF]  Applying migration '20230322063724_k'.
+[2023-03-22 12:21:54.272 +05:30  INF]  Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE [AspNetUsers] SET [ConcurrencyStamp] = N'396ff05f-97f5-4a8d-aff5-ab6f860cdd30', [PasswordHash] = N'AQAAAAEAACcQAAAAECC2fU2/z5Id5Hgl9I+uT48ptmyThtMHsg1Z5bT/HPjqhr+Qe9XTT6USR6PWrXoPXQ==', [SecurityStamp] = N'37d19a9c-e455-45c6-a8d9-c14f079eae35'
+WHERE [Id] = N'056f40f2-5fc9-41fb-8036-f1670e7344a3';
+SELECT @@ROWCOUNT;
+[2023-03-22 12:21:54.274 +05:30  INF]  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE [Users] SET [DOB] = '2023-03-22T12:07:24.1622376+05:30', [DOJ] = '2023-03-22T12:07:24.1622387+05:30'
+WHERE [UserId] = N'056f40f2-5fc9-41fb-8036-f1670e7344a3';
+SELECT @@ROWCOUNT;
+[2023-03-22 12:21:54.275 +05:30  INF]  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20230322063724_k', N'6.0.12');
+[2023-03-22 12:21:54.276 +05:30  INF]  Applying migration '20230322065142_c'.
+[2023-03-22 12:21:54.289 +05:30  INF]  Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE [AspNetUsers] SET [ConcurrencyStamp] = N'ea071495-cb14-4006-992b-94a5952a8daa', [PasswordHash] = N'AQAAAAEAACcQAAAAEG48IExr/QufcL6MkUmuVSiE37sB5gOQxKWK63dSfZVthMtzRI/5PSUyxHeRQHJuAQ==', [SecurityStamp] = N'311535ec-b1de-4732-9fb2-7021d91d86e8'
+WHERE [Id] = N'056f40f2-5fc9-41fb-8036-f1670e7344a3';
+SELECT @@ROWCOUNT;
+[2023-03-22 12:21:54.292 +05:30  INF]  Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE [Users] SET [DOB] = '2023-03-22T12:21:42.5459668+05:30', [DOJ] = '2023-03-22T12:21:42.5459699+05:30'
+WHERE [UserId] = N'056f40f2-5fc9-41fb-8036-f1670e7344a3';
+SELECT @@ROWCOUNT;
+[2023-03-22 12:21:54.294 +05:30  INF]  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20230322065142_c', N'6.0.12');
+[2023-03-22 15:33:48.587 +05:30  INF]  User profile is available. Using 'C:\Users\akhil.madhu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2023-03-22 15:33:49.100 +05:30  INF]  Now listening on: http://localhost:5238
+[2023-03-22 15:33:49.103 +05:30  INF]  Application started. Press Ctrl+C to shut down.
+[2023-03-22 15:33:49.104 +05:30  INF]  Hosting environment: Development
+[2023-03-22 15:33:49.104 +05:30  INF]  Content root path: C:\Users\akhil.madhu\source\repos\Backend\Backend\
+[2023-03-22 15:33:50.145 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/swagger/index.html - -
+[2023-03-22 15:33:50.778 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/swagger/index.html - - - 200 - text/html;charset=utf-8 635.7048ms
+[2023-03-22 15:33:50.846 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/_framework/aspnetcore-browser-refresh.js - -
+[2023-03-22 15:33:50.849 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 3.7321ms
+[2023-03-22 15:33:50.868 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/_vs/browserLink - -
+[2023-03-22 15:33:50.911 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 42.3634ms
+[2023-03-22 15:33:50.988 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/swagger/v1/swagger.json - -
+[2023-03-22 15:33:51.139 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 151.8595ms

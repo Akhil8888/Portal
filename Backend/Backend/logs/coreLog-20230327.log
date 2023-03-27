@@ -1,0 +1,660 @@
+[2023-03-27 09:50:38.680 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/token application/json 40
+[2023-03-27 09:50:38.753 +05:30  INF]  Executing endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 09:50:38.757 +05:30  INF]  Route matched with {action = "Post", controller = "Token"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.TokenController (Backend).
+[2023-03-27 09:50:38.772 +05:30  INF]  Executing OkObjectResult, writing value of type 'System.String'.
+[2023-03-27 09:50:38.774 +05:30  INF]  Executed action Backend.Controllers.TokenController.Post (Backend) in 15.5784ms
+[2023-03-27 09:50:38.774 +05:30  INF]  Executed endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 09:50:38.774 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/token application/json 40 - 200 - application/json;+charset=utf-8 101.6678ms
+[2023-03-27 09:50:38.898 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/Account/Login/ application/json 58
+[2023-03-27 09:50:38.901 +05:30  INF]  Executing endpoint 'Backend.Controllers.AccountController.Login (Backend)'
+[2023-03-27 09:50:38.901 +05:30  INF]  Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.AccountController (Backend).
+[2023-03-27 09:50:38.928 +05:30  INF]  Entity Framework Core 6.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.12' with options: None
+[2023-03-27 09:50:39.005 +05:30  INF]  Executed DbCommand (15ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+[2023-03-27 09:50:39.019 +05:30  WRN]  Invalid password for user.
+[2023-03-27 09:50:39.019 +05:30  ERR]  Login Error
+[2023-03-27 09:50:39.020 +05:30  INF]  Executing BadRequestObjectResult, writing value of type 'Backend.Core.Common.ErrorHandlers.Results`1[[Backend.Core.Data.Entities.UserModel, Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2023-03-27 09:50:39.023 +05:30  INF]  Executed action Backend.Controllers.AccountController.Login (Backend) in 121.3266ms
+[2023-03-27 09:50:39.023 +05:30  INF]  Executed endpoint 'Backend.Controllers.AccountController.Login (Backend)'
+[2023-03-27 09:50:39.023 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/Account/Login/ application/json 58 - 400 - application/json;+charset=utf-8 125.4975ms
+[2023-03-27 09:50:48.636 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/token application/json 40
+[2023-03-27 09:50:48.636 +05:30  INF]  Executing endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 09:50:48.637 +05:30  INF]  Route matched with {action = "Post", controller = "Token"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.TokenController (Backend).
+[2023-03-27 09:50:48.638 +05:30  INF]  Executing OkObjectResult, writing value of type 'System.String'.
+[2023-03-27 09:50:48.638 +05:30  INF]  Executed action Backend.Controllers.TokenController.Post (Backend) in 1.2194ms
+[2023-03-27 09:50:48.638 +05:30  INF]  Executed endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 09:50:48.638 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/token application/json 40 - 200 - application/json;+charset=utf-8 2.4045ms
+[2023-03-27 09:50:48.649 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/Account/Login/ application/json 59
+[2023-03-27 09:50:48.649 +05:30  INF]  Executing endpoint 'Backend.Controllers.AccountController.Login (Backend)'
+[2023-03-27 09:50:48.649 +05:30  INF]  Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.AccountController (Backend).
+[2023-03-27 09:50:48.651 +05:30  INF]  Entity Framework Core 6.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.12' with options: None
+[2023-03-27 09:50:48.656 +05:30  INF]  Executed DbCommand (4ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+[2023-03-27 09:50:48.665 +05:30  INF]  Executed DbCommand (3ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[Address], [u].[DOB], [u].[DOJ], [u].[FirstName], [u].[Gender], [u].[Image], [u].[LastName], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Users] AS [u]
+INNER JOIN [AspNetUsers] AS [a] ON [u].[UserId] = [a].[Id]
+WHERE [u].[UserId] = @__user_Id_0
+[2023-03-27 09:50:48.667 +05:30  INF]  Executing OkObjectResult, writing value of type 'Backend.Core.Common.ErrorHandlers.Results`1[[Backend.Core.Data.Entities.UserModel, Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2023-03-27 09:50:48.667 +05:30  INF]  Executed action Backend.Controllers.AccountController.Login (Backend) in 17.7866ms
+[2023-03-27 09:50:48.667 +05:30  INF]  Executed endpoint 'Backend.Controllers.AccountController.Login (Backend)'
+[2023-03-27 09:50:48.668 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/Account/Login/ application/json 59 - 200 - application/json;+charset=utf-8 18.8396ms
+[2023-03-27 09:51:00.090 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/token application/json 40
+[2023-03-27 09:51:00.090 +05:30  INF]  Executing endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 09:51:00.091 +05:30  INF]  Route matched with {action = "Post", controller = "Token"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.TokenController (Backend).
+[2023-03-27 09:51:00.092 +05:30  INF]  Executing OkObjectResult, writing value of type 'System.String'.
+[2023-03-27 09:51:00.092 +05:30  INF]  Executed action Backend.Controllers.TokenController.Post (Backend) in 1.3635ms
+[2023-03-27 09:51:00.092 +05:30  INF]  Executed endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 09:51:00.092 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/token application/json 40 - 200 - application/json;+charset=utf-8 2.1767ms
+[2023-03-27 09:51:00.107 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/api/Account/UserList/ - -
+[2023-03-27 09:51:00.108 +05:30  INF]  Executing endpoint 'Backend.Controllers.AccountController.UsersList (Backend)'
+[2023-03-27 09:51:00.109 +05:30  INF]  Route matched with {action = "UsersList", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UsersList() on controller Backend.Controllers.AccountController (Backend).
+[2023-03-27 09:51:00.111 +05:30  INF]  Entity Framework Core 6.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.12' with options: None
+[2023-03-27 09:51:00.114 +05:30  INF]  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[UserId], [u].[Address], [u].[DOB], [u].[DOJ], [u].[FirstName], [u].[Gender], [u].[Image], [u].[LastName], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Users] AS [u]
+INNER JOIN [AspNetUsers] AS [a] ON [u].[UserId] = [a].[Id]
+[2023-03-27 09:51:00.116 +05:30  INF]  Executing OkObjectResult, writing value of type 'Backend.Core.Common.ErrorHandlers.Results`1[[System.Collections.Generic.List`1[[Backend.Core.Data.Entities.UserModel, Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2023-03-27 09:51:00.117 +05:30  INF]  Executed action Backend.Controllers.AccountController.UsersList (Backend) in 7.5236ms
+[2023-03-27 09:51:00.117 +05:30  INF]  Executed endpoint 'Backend.Controllers.AccountController.UsersList (Backend)'
+[2023-03-27 09:51:00.117 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/api/Account/UserList/ - - - 200 - application/json;+charset=utf-8 9.9185ms
+[2023-03-27 09:51:08.165 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/token application/json 40
+[2023-03-27 09:51:08.165 +05:30  INF]  Executing endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 09:51:08.165 +05:30  INF]  Route matched with {action = "Post", controller = "Token"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.TokenController (Backend).
+[2023-03-27 09:51:08.166 +05:30  INF]  Executing OkObjectResult, writing value of type 'System.String'.
+[2023-03-27 09:51:08.166 +05:30  INF]  Executed action Backend.Controllers.TokenController.Post (Backend) in 0.6452ms
+[2023-03-27 09:51:08.166 +05:30  INF]  Executed endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 09:51:08.166 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/token application/json 40 - 200 - application/json;+charset=utf-8 1.7454ms
+[2023-03-27 09:51:08.178 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/api/Account/SingleUser/?userId=056f40f2-5fc9-41fb-8036-f1670e7344a3 - -
+[2023-03-27 09:51:08.179 +05:30  INF]  Executing endpoint 'Backend.Controllers.AccountController.SingleUserDetails (Backend)'
+[2023-03-27 09:51:08.179 +05:30  INF]  Route matched with {action = "SingleUserDetails", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SingleUserDetails(System.String) on controller Backend.Controllers.AccountController (Backend).
+[2023-03-27 09:51:08.182 +05:30  INF]  Entity Framework Core 6.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.12' with options: None
+[2023-03-27 09:51:08.187 +05:30  INF]  Executed DbCommand (4ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[Address], [u].[DOB], [u].[DOJ], [u].[FirstName], [u].[Gender], [u].[Image], [u].[LastName], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Users] AS [u]
+INNER JOIN [AspNetUsers] AS [a] ON [u].[UserId] = [a].[Id]
+WHERE [u].[UserId] = @__userId_0
+[2023-03-27 09:51:08.188 +05:30  INF]  Executing OkObjectResult, writing value of type 'Backend.Core.Common.ErrorHandlers.Results`1[[Backend.Core.Data.Entities.UserModel, Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2023-03-27 09:51:08.188 +05:30  INF]  Executed action Backend.Controllers.AccountController.SingleUserDetails (Backend) in 9.0617ms
+[2023-03-27 09:51:08.188 +05:30  INF]  Executed endpoint 'Backend.Controllers.AccountController.SingleUserDetails (Backend)'
+[2023-03-27 09:51:08.188 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/api/Account/SingleUser/?userId=056f40f2-5fc9-41fb-8036-f1670e7344a3 - - - 200 - application/json;+charset=utf-8 10.6011ms
+[2023-03-27 09:54:26.975 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/token application/json 40
+[2023-03-27 09:54:26.976 +05:30  INF]  Executing endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 09:54:26.977 +05:30  INF]  Route matched with {action = "Post", controller = "Token"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.TokenController (Backend).
+[2023-03-27 09:54:26.978 +05:30  INF]  Executing OkObjectResult, writing value of type 'System.String'.
+[2023-03-27 09:54:26.978 +05:30  INF]  Executed action Backend.Controllers.TokenController.Post (Backend) in 1.2663ms
+[2023-03-27 09:54:26.978 +05:30  INF]  Executed endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 09:54:26.978 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/token application/json 40 - 200 - application/json;+charset=utf-8 3.4506ms
+[2023-03-27 09:54:27.006 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/api/Account/SingleUser/?userId=056f40f2-5fc9-41fb-8036-f1670e7344a3 - -
+[2023-03-27 09:54:27.008 +05:30  INF]  Executing endpoint 'Backend.Controllers.AccountController.SingleUserDetails (Backend)'
+[2023-03-27 09:54:27.008 +05:30  INF]  Route matched with {action = "SingleUserDetails", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SingleUserDetails(System.String) on controller Backend.Controllers.AccountController (Backend).
+[2023-03-27 09:54:27.012 +05:30  INF]  Entity Framework Core 6.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.12' with options: None
+[2023-03-27 09:54:27.024 +05:30  INF]  Executed DbCommand (10ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[Address], [u].[DOB], [u].[DOJ], [u].[FirstName], [u].[Gender], [u].[Image], [u].[LastName], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Users] AS [u]
+INNER JOIN [AspNetUsers] AS [a] ON [u].[UserId] = [a].[Id]
+WHERE [u].[UserId] = @__userId_0
+[2023-03-27 09:54:27.041 +05:30  INF]  Executing OkObjectResult, writing value of type 'Backend.Core.Common.ErrorHandlers.Results`1[[Backend.Core.Data.Entities.UserModel, Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2023-03-27 09:54:27.055 +05:30  INF]  Executed action Backend.Controllers.AccountController.SingleUserDetails (Backend) in 47.0076ms
+[2023-03-27 09:54:27.056 +05:30  INF]  Executed endpoint 'Backend.Controllers.AccountController.SingleUserDetails (Backend)'
+[2023-03-27 09:54:27.097 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/api/Account/SingleUser/?userId=056f40f2-5fc9-41fb-8036-f1670e7344a3 - - - 200 - application/json;+charset=utf-8 50.0069ms
+[2023-03-27 10:00:29.707 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/token application/json 40
+[2023-03-27 10:00:29.708 +05:30  INF]  Executing endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 10:00:29.708 +05:30  INF]  Route matched with {action = "Post", controller = "Token"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.TokenController (Backend).
+[2023-03-27 10:00:29.741 +05:30  INF]  Executing OkObjectResult, writing value of type 'System.String'.
+[2023-03-27 10:00:29.743 +05:30  INF]  Executed action Backend.Controllers.TokenController.Post (Backend) in 29.9422ms
+[2023-03-27 10:00:29.743 +05:30  INF]  Executed endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 10:00:29.743 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/token application/json 40 - 200 - application/json;+charset=utf-8 38.3010ms
+[2023-03-27 10:00:29.868 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/api/Account/UserList/ - -
+[2023-03-27 10:00:29.870 +05:30  INF]  Executing endpoint 'Backend.Controllers.AccountController.UsersList (Backend)'
+[2023-03-27 10:00:29.871 +05:30  INF]  Route matched with {action = "UsersList", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UsersList() on controller Backend.Controllers.AccountController (Backend).
+[2023-03-27 10:00:29.873 +05:30  INF]  Entity Framework Core 6.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.12' with options: None
+[2023-03-27 10:00:29.928 +05:30  INF]  Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[UserId], [u].[Address], [u].[DOB], [u].[DOJ], [u].[FirstName], [u].[Gender], [u].[Image], [u].[LastName], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Users] AS [u]
+INNER JOIN [AspNetUsers] AS [a] ON [u].[UserId] = [a].[Id]
+[2023-03-27 10:00:29.977 +05:30  INF]  Executing OkObjectResult, writing value of type 'Backend.Core.Common.ErrorHandlers.Results`1[[System.Collections.Generic.List`1[[Backend.Core.Data.Entities.UserModel, Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2023-03-27 10:00:29.978 +05:30  INF]  Executed action Backend.Controllers.AccountController.UsersList (Backend) in 107.2372ms
+[2023-03-27 10:00:29.978 +05:30  INF]  Executed endpoint 'Backend.Controllers.AccountController.UsersList (Backend)'
+[2023-03-27 10:00:29.999 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/api/Account/UserList/ - - - 200 - application/json;+charset=utf-8 131.6095ms
+[2023-03-27 10:01:54.245 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/token application/json 40
+[2023-03-27 10:01:54.246 +05:30  INF]  Executing endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 10:01:54.247 +05:30  INF]  Route matched with {action = "Post", controller = "Token"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.TokenController (Backend).
+[2023-03-27 10:01:54.248 +05:30  INF]  Executing OkObjectResult, writing value of type 'System.String'.
+[2023-03-27 10:01:54.248 +05:30  INF]  Executed action Backend.Controllers.TokenController.Post (Backend) in 1.3334ms
+[2023-03-27 10:01:54.248 +05:30  INF]  Executed endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 10:01:54.248 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/token application/json 40 - 200 - application/json;+charset=utf-8 3.6534ms
+[2023-03-27 10:01:54.270 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/api/Account/SingleUser/?userId=056f40f2-5fc9-41fb-8036-f1670e7344a3 - -
+[2023-03-27 10:01:54.271 +05:30  INF]  Executing endpoint 'Backend.Controllers.AccountController.SingleUserDetails (Backend)'
+[2023-03-27 10:01:54.271 +05:30  INF]  Route matched with {action = "SingleUserDetails", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SingleUserDetails(System.String) on controller Backend.Controllers.AccountController (Backend).
+[2023-03-27 10:01:54.274 +05:30  INF]  Entity Framework Core 6.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.12' with options: None
+[2023-03-27 10:01:54.287 +05:30  INF]  Executed DbCommand (11ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[Address], [u].[DOB], [u].[DOJ], [u].[FirstName], [u].[Gender], [u].[Image], [u].[LastName], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Users] AS [u]
+INNER JOIN [AspNetUsers] AS [a] ON [u].[UserId] = [a].[Id]
+WHERE [u].[UserId] = @__userId_0
+[2023-03-27 10:01:54.288 +05:30  INF]  Executing OkObjectResult, writing value of type 'Backend.Core.Common.ErrorHandlers.Results`1[[Backend.Core.Data.Entities.UserModel, Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2023-03-27 10:01:54.289 +05:30  INF]  Executed action Backend.Controllers.AccountController.SingleUserDetails (Backend) in 17.0478ms
+[2023-03-27 10:01:54.289 +05:30  INF]  Executed endpoint 'Backend.Controllers.AccountController.SingleUserDetails (Backend)'
+[2023-03-27 10:01:54.289 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/api/Account/SingleUser/?userId=056f40f2-5fc9-41fb-8036-f1670e7344a3 - - - 200 - application/json;+charset=utf-8 19.6575ms
+[2023-03-27 10:36:19.268 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/token application/json 40
+[2023-03-27 10:36:19.269 +05:30  INF]  Executing endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 10:36:19.269 +05:30  INF]  Route matched with {action = "Post", controller = "Token"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.TokenController (Backend).
+[2023-03-27 10:36:19.281 +05:30  INF]  Executing OkObjectResult, writing value of type 'System.String'.
+[2023-03-27 10:36:19.282 +05:30  INF]  Executed action Backend.Controllers.TokenController.Post (Backend) in 12.184ms
+[2023-03-27 10:36:19.282 +05:30  INF]  Executed endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 10:36:19.282 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/token application/json 40 - 200 - application/json;+charset=utf-8 15.7335ms
+[2023-03-27 10:36:19.448 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/api/Account/UserList/ - -
+[2023-03-27 10:36:19.449 +05:30  INF]  Executing endpoint 'Backend.Controllers.AccountController.UsersList (Backend)'
+[2023-03-27 10:36:19.449 +05:30  INF]  Route matched with {action = "UsersList", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UsersList() on controller Backend.Controllers.AccountController (Backend).
+[2023-03-27 10:36:19.454 +05:30  INF]  Entity Framework Core 6.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.12' with options: None
+[2023-03-27 10:36:19.496 +05:30  INF]  Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[UserId], [u].[Address], [u].[DOB], [u].[DOJ], [u].[FirstName], [u].[Gender], [u].[Image], [u].[LastName], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Users] AS [u]
+INNER JOIN [AspNetUsers] AS [a] ON [u].[UserId] = [a].[Id]
+[2023-03-27 10:36:19.498 +05:30  INF]  Executing OkObjectResult, writing value of type 'Backend.Core.Common.ErrorHandlers.Results`1[[System.Collections.Generic.List`1[[Backend.Core.Data.Entities.UserModel, Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2023-03-27 10:36:19.499 +05:30  INF]  Executed action Backend.Controllers.AccountController.UsersList (Backend) in 49.2507ms
+[2023-03-27 10:36:19.499 +05:30  INF]  Executed endpoint 'Backend.Controllers.AccountController.UsersList (Backend)'
+[2023-03-27 10:36:19.500 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/api/Account/UserList/ - - - 200 - application/json;+charset=utf-8 51.9616ms
+[2023-03-27 10:36:57.217 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/token application/json 40
+[2023-03-27 10:36:57.217 +05:30  INF]  Executing endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 10:36:57.228 +05:30  INF]  Route matched with {action = "Post", controller = "Token"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.TokenController (Backend).
+[2023-03-27 10:36:57.232 +05:30  INF]  Executing OkObjectResult, writing value of type 'System.String'.
+[2023-03-27 10:36:57.236 +05:30  INF]  Executed action Backend.Controllers.TokenController.Post (Backend) in 4.8211ms
+[2023-03-27 10:36:57.237 +05:30  INF]  Executed endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 10:36:57.237 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/token application/json 40 - 200 - application/json;+charset=utf-8 24.3926ms
+[2023-03-27 10:36:57.260 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/api/Account/SingleUser/?userId=056f40f2-5fc9-41fb-8036-f1670e7344a3 - -
+[2023-03-27 10:36:57.261 +05:30  INF]  Executing endpoint 'Backend.Controllers.AccountController.SingleUserDetails (Backend)'
+[2023-03-27 10:36:57.262 +05:30  INF]  Route matched with {action = "SingleUserDetails", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SingleUserDetails(System.String) on controller Backend.Controllers.AccountController (Backend).
+[2023-03-27 10:36:57.264 +05:30  INF]  Entity Framework Core 6.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.12' with options: None
+[2023-03-27 10:36:57.275 +05:30  INF]  Executed DbCommand (10ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[Address], [u].[DOB], [u].[DOJ], [u].[FirstName], [u].[Gender], [u].[Image], [u].[LastName], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Users] AS [u]
+INNER JOIN [AspNetUsers] AS [a] ON [u].[UserId] = [a].[Id]
+WHERE [u].[UserId] = @__userId_0
+[2023-03-27 10:36:57.277 +05:30  INF]  Executing OkObjectResult, writing value of type 'Backend.Core.Common.ErrorHandlers.Results`1[[Backend.Core.Data.Entities.UserModel, Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2023-03-27 10:36:57.278 +05:30  INF]  Executed action Backend.Controllers.AccountController.SingleUserDetails (Backend) in 15.6718ms
+[2023-03-27 10:36:57.278 +05:30  INF]  Executed endpoint 'Backend.Controllers.AccountController.SingleUserDetails (Backend)'
+[2023-03-27 10:36:57.278 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/api/Account/SingleUser/?userId=056f40f2-5fc9-41fb-8036-f1670e7344a3 - - - 200 - application/json;+charset=utf-8 18.4013ms
+[2023-03-27 10:40:31.499 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/token application/json 40
+[2023-03-27 10:40:31.505 +05:30  INF]  Executing endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 10:40:31.508 +05:30  INF]  Route matched with {action = "Post", controller = "Token"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.TokenController (Backend).
+[2023-03-27 10:40:31.513 +05:30  INF]  Executing OkObjectResult, writing value of type 'System.String'.
+[2023-03-27 10:40:31.514 +05:30  INF]  Executed action Backend.Controllers.TokenController.Post (Backend) in 5.6932ms
+[2023-03-27 10:40:31.514 +05:30  INF]  Executed endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 10:40:31.514 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/token application/json 40 - 200 - application/json;+charset=utf-8 15.1304ms
+[2023-03-27 10:40:31.576 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/api/Account/UserList/ - -
+[2023-03-27 10:40:31.577 +05:30  INF]  Executing endpoint 'Backend.Controllers.AccountController.UsersList (Backend)'
+[2023-03-27 10:40:31.578 +05:30  INF]  Route matched with {action = "UsersList", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UsersList() on controller Backend.Controllers.AccountController (Backend).
+[2023-03-27 10:40:31.578 +05:30  INF]  Executing OkObjectResult, writing value of type 'Backend.Core.Common.ErrorHandlers.Results`1[[System.Collections.Generic.List`1[[Backend.Core.Data.Entities.UserModel, Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2023-03-27 10:40:31.579 +05:30  INF]  Executed action Backend.Controllers.AccountController.UsersList (Backend) in 1.0967ms
+[2023-03-27 10:40:31.579 +05:30  INF]  Executed endpoint 'Backend.Controllers.AccountController.UsersList (Backend)'
+[2023-03-27 10:40:31.579 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/api/Account/UserList/ - - - 200 - application/json;+charset=utf-8 2.6738ms
+[2023-03-27 10:41:19.841 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/token application/json 40
+[2023-03-27 10:41:19.843 +05:30  INF]  Executing endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 10:41:19.844 +05:30  INF]  Route matched with {action = "Post", controller = "Token"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.TokenController (Backend).
+[2023-03-27 10:41:19.854 +05:30  INF]  Executing OkObjectResult, writing value of type 'System.String'.
+[2023-03-27 10:41:19.855 +05:30  INF]  Executed action Backend.Controllers.TokenController.Post (Backend) in 10.7952ms
+[2023-03-27 10:41:19.855 +05:30  INF]  Executed endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 10:41:19.856 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/token application/json 40 - 200 - application/json;+charset=utf-8 14.5406ms
+[2023-03-27 10:41:19.879 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/api/Account/UserList/ - -
+[2023-03-27 10:41:19.880 +05:30  INF]  Executing endpoint 'Backend.Controllers.AccountController.UsersList (Backend)'
+[2023-03-27 10:41:19.880 +05:30  INF]  Route matched with {action = "UsersList", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UsersList() on controller Backend.Controllers.AccountController (Backend).
+[2023-03-27 10:41:19.881 +05:30  INF]  Executing OkObjectResult, writing value of type 'Backend.Core.Common.ErrorHandlers.Results`1[[System.Collections.Generic.List`1[[Backend.Core.Data.Entities.UserModel, Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2023-03-27 10:41:19.883 +05:30  INF]  Executed action Backend.Controllers.AccountController.UsersList (Backend) in 2.1318ms
+[2023-03-27 10:41:19.883 +05:30  INF]  Executed endpoint 'Backend.Controllers.AccountController.UsersList (Backend)'
+[2023-03-27 10:41:19.888 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/api/Account/UserList/ - - - 200 - application/json;+charset=utf-8 8.6697ms
+[2023-03-27 10:44:38.270 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/token application/json 40
+[2023-03-27 10:44:38.270 +05:30  INF]  Executing endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 10:44:38.271 +05:30  INF]  Route matched with {action = "Post", controller = "Token"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.TokenController (Backend).
+[2023-03-27 10:44:38.278 +05:30  INF]  Executing OkObjectResult, writing value of type 'System.String'.
+[2023-03-27 10:44:38.278 +05:30  INF]  Executed action Backend.Controllers.TokenController.Post (Backend) in 2.8896ms
+[2023-03-27 10:44:38.278 +05:30  INF]  Executed endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 10:44:38.278 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/token application/json 40 - 200 - application/json;+charset=utf-8 8.3641ms
+[2023-03-27 10:44:38.363 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/api/Account/UserList/ - -
+[2023-03-27 10:44:38.363 +05:30  INF]  Executing endpoint 'Backend.Controllers.AccountController.UsersList (Backend)'
+[2023-03-27 10:44:38.364 +05:30  INF]  Route matched with {action = "UsersList", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UsersList() on controller Backend.Controllers.AccountController (Backend).
+[2023-03-27 10:44:38.364 +05:30  INF]  Executing OkObjectResult, writing value of type 'Backend.Core.Common.ErrorHandlers.Results`1[[System.Collections.Generic.List`1[[Backend.Core.Data.Entities.UserModel, Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2023-03-27 10:44:38.365 +05:30  INF]  Executed action Backend.Controllers.AccountController.UsersList (Backend) in 1.11ms
+[2023-03-27 10:44:38.365 +05:30  INF]  Executed endpoint 'Backend.Controllers.AccountController.UsersList (Backend)'
+[2023-03-27 10:44:38.365 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/api/Account/UserList/ - - - 200 - application/json;+charset=utf-8 3.0165ms
+[2023-03-27 10:44:55.423 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/token application/json 40
+[2023-03-27 10:44:55.423 +05:30  INF]  Executing endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 10:44:55.423 +05:30  INF]  Route matched with {action = "Post", controller = "Token"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.TokenController (Backend).
+[2023-03-27 10:44:55.424 +05:30  INF]  Executing OkObjectResult, writing value of type 'System.String'.
+[2023-03-27 10:44:55.424 +05:30  INF]  Executed action Backend.Controllers.TokenController.Post (Backend) in 0.9963ms
+[2023-03-27 10:44:55.424 +05:30  INF]  Executed endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 10:44:55.425 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/token application/json 40 - 200 - application/json;+charset=utf-8 2.3126ms
+[2023-03-27 10:44:55.447 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/api/Administrative/Roles/ - -
+[2023-03-27 10:44:55.865 +05:30  INF]  Basic was not authenticated. Failure message: Authentication FailedThe input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+[2023-03-27 10:44:55.865 +05:30  INF]  Executing endpoint 'Backend.Controllers.AdministrativeController.AllRoles (Backend)'
+[2023-03-27 10:44:55.889 +05:30  INF]  Route matched with {action = "AllRoles", controller = "Administrative"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AllRoles() on controller Backend.Controllers.AdministrativeController (Backend).
+[2023-03-27 10:44:55.910 +05:30  INF]  Entity Framework Core 6.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.12' with options: None
+[2023-03-27 10:44:55.984 +05:30  INF]  Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+[2023-03-27 10:44:56.034 +05:30  INF]  Executing OkObjectResult, writing value of type 'Backend.Core.Common.ErrorHandlers.Results`1[[System.Collections.Generic.List`1[[Microsoft.AspNetCore.Identity.IdentityRole, Microsoft.Extensions.Identity.Stores, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2023-03-27 10:44:56.052 +05:30  INF]  Executed action Backend.Controllers.AdministrativeController.AllRoles (Backend) in 163.1275ms
+[2023-03-27 10:44:56.052 +05:30  INF]  Executed endpoint 'Backend.Controllers.AdministrativeController.AllRoles (Backend)'
+[2023-03-27 10:44:56.053 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/api/Administrative/Roles/ - - - 200 - application/json;+charset=utf-8 606.2210ms
+[2023-03-27 10:45:06.169 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/token application/json 40
+[2023-03-27 10:45:06.170 +05:30  INF]  Executing endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 10:45:06.170 +05:30  INF]  Route matched with {action = "Post", controller = "Token"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.TokenController (Backend).
+[2023-03-27 10:45:06.170 +05:30  INF]  Executing OkObjectResult, writing value of type 'System.String'.
+[2023-03-27 10:45:06.171 +05:30  INF]  Executed action Backend.Controllers.TokenController.Post (Backend) in 0.6278ms
+[2023-03-27 10:45:06.171 +05:30  INF]  Executed endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 10:45:06.171 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/token application/json 40 - 200 - application/json;+charset=utf-8 1.3616ms
+[2023-03-27 10:45:06.182 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/api/Administrative/SingleRole/?roleId=bca42f8c-2cfe-4930-a709-02a408db1be2 - -
+[2023-03-27 10:45:06.251 +05:30  INF]  Basic was not authenticated. Failure message: Authentication FailedThe input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+[2023-03-27 10:45:06.252 +05:30  INF]  Executing endpoint 'Backend.Controllers.AdministrativeController.SingleRole (Backend)'
+[2023-03-27 10:45:06.273 +05:30  INF]  Route matched with {action = "SingleRole", controller = "Administrative"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SingleRole(System.String) on controller Backend.Controllers.AdministrativeController (Backend).
+[2023-03-27 10:45:06.299 +05:30  INF]  Entity Framework Core 6.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.12' with options: None
+[2023-03-27 10:45:06.512 +05:30  INF]  Executed DbCommand (7ms) [Parameters=[@__roleId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[Id] = @__roleId_0
+[2023-03-27 10:45:06.514 +05:30  INF]  Executing OkObjectResult, writing value of type 'Backend.Core.Common.ErrorHandlers.Results`1[[Microsoft.AspNetCore.Identity.IdentityRole, Microsoft.Extensions.Identity.Stores, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]'.
+[2023-03-27 10:45:06.521 +05:30  INF]  Executed action Backend.Controllers.AdministrativeController.SingleRole (Backend) in 247.6205ms
+[2023-03-27 10:45:06.521 +05:30  INF]  Executed endpoint 'Backend.Controllers.AdministrativeController.SingleRole (Backend)'
+[2023-03-27 10:45:06.522 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/api/Administrative/SingleRole/?roleId=bca42f8c-2cfe-4930-a709-02a408db1be2 - - - 200 - application/json;+charset=utf-8 339.1666ms
+[2023-03-27 10:45:09.601 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/token application/json 40
+[2023-03-27 10:45:09.601 +05:30  INF]  Executing endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 10:45:09.602 +05:30  INF]  Route matched with {action = "Post", controller = "Token"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.TokenController (Backend).
+[2023-03-27 10:45:09.603 +05:30  INF]  Executing OkObjectResult, writing value of type 'System.String'.
+[2023-03-27 10:45:09.603 +05:30  INF]  Executed action Backend.Controllers.TokenController.Post (Backend) in 1.538ms
+[2023-03-27 10:45:09.603 +05:30  INF]  Executed endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 10:45:09.604 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/token application/json 40 - 200 - application/json;+charset=utf-8 2.8834ms
+[2023-03-27 10:45:09.621 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/api/Administrative/Roles/ - -
+[2023-03-27 10:45:09.692 +05:30  INF]  Basic was not authenticated. Failure message: Authentication FailedThe input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+[2023-03-27 10:45:09.692 +05:30  INF]  Executing endpoint 'Backend.Controllers.AdministrativeController.AllRoles (Backend)'
+[2023-03-27 10:45:09.692 +05:30  INF]  Route matched with {action = "AllRoles", controller = "Administrative"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AllRoles() on controller Backend.Controllers.AdministrativeController (Backend).
+[2023-03-27 10:45:09.698 +05:30  INF]  Entity Framework Core 6.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.12' with options: None
+[2023-03-27 10:45:09.701 +05:30  INF]  Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+[2023-03-27 10:45:09.706 +05:30  INF]  Executing OkObjectResult, writing value of type 'Backend.Core.Common.ErrorHandlers.Results`1[[System.Collections.Generic.List`1[[Microsoft.AspNetCore.Identity.IdentityRole, Microsoft.Extensions.Identity.Stores, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2023-03-27 10:45:09.708 +05:30  INF]  Executed action Backend.Controllers.AdministrativeController.AllRoles (Backend) in 15.6262ms
+[2023-03-27 10:45:09.708 +05:30  INF]  Executed endpoint 'Backend.Controllers.AdministrativeController.AllRoles (Backend)'
+[2023-03-27 10:45:09.708 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/api/Administrative/Roles/ - - - 200 - application/json;+charset=utf-8 87.1985ms
+[2023-03-27 10:45:11.831 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/token application/json 40
+[2023-03-27 10:45:11.832 +05:30  INF]  Executing endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 10:45:11.832 +05:30  INF]  Route matched with {action = "Post", controller = "Token"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.TokenController (Backend).
+[2023-03-27 10:45:11.835 +05:30  INF]  Executing OkObjectResult, writing value of type 'System.String'.
+[2023-03-27 10:45:11.835 +05:30  INF]  Executed action Backend.Controllers.TokenController.Post (Backend) in 3.1881ms
+[2023-03-27 10:45:11.835 +05:30  INF]  Executed endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 10:45:11.836 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/token application/json 40 - 200 - application/json;+charset=utf-8 4.6209ms
+[2023-03-27 10:45:11.861 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/api/Administrative/SingleRole/?roleId=bca42f8c-2cfe-4930-a709-02a408db1be2 - -
+[2023-03-27 10:45:11.937 +05:30  INF]  Basic was not authenticated. Failure message: Authentication FailedThe input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+[2023-03-27 10:45:11.938 +05:30  INF]  Executing endpoint 'Backend.Controllers.AdministrativeController.SingleRole (Backend)'
+[2023-03-27 10:45:11.938 +05:30  INF]  Route matched with {action = "SingleRole", controller = "Administrative"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SingleRole(System.String) on controller Backend.Controllers.AdministrativeController (Backend).
+[2023-03-27 10:45:11.938 +05:30  INF]  Entity Framework Core 6.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.12' with options: None
+[2023-03-27 10:45:11.944 +05:30  INF]  Executed DbCommand (5ms) [Parameters=[@__roleId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[Id] = @__roleId_0
+[2023-03-27 10:45:11.945 +05:30  INF]  Executing OkObjectResult, writing value of type 'Backend.Core.Common.ErrorHandlers.Results`1[[Microsoft.AspNetCore.Identity.IdentityRole, Microsoft.Extensions.Identity.Stores, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]'.
+[2023-03-27 10:45:11.945 +05:30  INF]  Executed action Backend.Controllers.AdministrativeController.SingleRole (Backend) in 7.44ms
+[2023-03-27 10:45:11.945 +05:30  INF]  Executed endpoint 'Backend.Controllers.AdministrativeController.SingleRole (Backend)'
+[2023-03-27 10:45:11.946 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/api/Administrative/SingleRole/?roleId=bca42f8c-2cfe-4930-a709-02a408db1be2 - - - 200 - application/json;+charset=utf-8 84.8943ms
+[2023-03-27 10:45:14.607 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/token application/json 40
+[2023-03-27 10:45:14.607 +05:30  INF]  Executing endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 10:45:14.607 +05:30  INF]  Route matched with {action = "Post", controller = "Token"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.TokenController (Backend).
+[2023-03-27 10:45:14.608 +05:30  INF]  Executing OkObjectResult, writing value of type 'System.String'.
+[2023-03-27 10:45:14.608 +05:30  INF]  Executed action Backend.Controllers.TokenController.Post (Backend) in 0.9127ms
+[2023-03-27 10:45:14.608 +05:30  INF]  Executed endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 10:45:14.608 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/token application/json 40 - 200 - application/json;+charset=utf-8 1.8197ms
+[2023-03-27 10:45:14.629 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/api/Administrative/Roles/ - -
+[2023-03-27 10:45:14.695 +05:30  INF]  Basic was not authenticated. Failure message: Authentication FailedThe input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+[2023-03-27 10:45:14.695 +05:30  INF]  Executing endpoint 'Backend.Controllers.AdministrativeController.AllRoles (Backend)'
+[2023-03-27 10:45:14.696 +05:30  INF]  Route matched with {action = "AllRoles", controller = "Administrative"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AllRoles() on controller Backend.Controllers.AdministrativeController (Backend).
+[2023-03-27 10:45:14.697 +05:30  INF]  Entity Framework Core 6.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.12' with options: None
+[2023-03-27 10:45:14.701 +05:30  INF]  Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+[2023-03-27 10:45:14.701 +05:30  INF]  Executing OkObjectResult, writing value of type 'Backend.Core.Common.ErrorHandlers.Results`1[[System.Collections.Generic.List`1[[Microsoft.AspNetCore.Identity.IdentityRole, Microsoft.Extensions.Identity.Stores, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2023-03-27 10:45:14.704 +05:30  INF]  Executed action Backend.Controllers.AdministrativeController.AllRoles (Backend) in 7.9341ms
+[2023-03-27 10:45:14.704 +05:30  INF]  Executed endpoint 'Backend.Controllers.AdministrativeController.AllRoles (Backend)'
+[2023-03-27 10:45:14.704 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/api/Administrative/Roles/ - - - 200 - application/json;+charset=utf-8 75.4883ms
+[2023-03-27 11:02:06.607 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/token application/json 40
+[2023-03-27 11:02:06.608 +05:30  INF]  Executing endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 11:02:06.615 +05:30  INF]  Route matched with {action = "Post", controller = "Token"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.TokenController (Backend).
+[2023-03-27 11:02:06.641 +05:30  INF]  Executing OkObjectResult, writing value of type 'System.String'.
+[2023-03-27 11:02:06.641 +05:30  INF]  Executed action Backend.Controllers.TokenController.Post (Backend) in 26.1303ms
+[2023-03-27 11:02:06.641 +05:30  INF]  Executed endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 11:02:06.641 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/token application/json 40 - 200 - application/json;+charset=utf-8 35.0971ms
+[2023-03-27 11:02:06.716 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/Account/Login/ application/json 59
+[2023-03-27 11:02:06.716 +05:30  INF]  Executing endpoint 'Backend.Controllers.AccountController.Login (Backend)'
+[2023-03-27 11:02:06.717 +05:30  INF]  Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.AccountController (Backend).
+[2023-03-27 11:02:06.719 +05:30  INF]  Entity Framework Core 6.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.12' with options: None
+[2023-03-27 11:02:06.740 +05:30  INF]  Executed DbCommand (7ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+[2023-03-27 11:02:06.791 +05:30  INF]  Executed DbCommand (4ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[Address], [u].[DOB], [u].[DOJ], [u].[FirstName], [u].[Gender], [u].[Image], [u].[LastName], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Users] AS [u]
+INNER JOIN [AspNetUsers] AS [a] ON [u].[UserId] = [a].[Id]
+WHERE [u].[UserId] = @__user_Id_0
+[2023-03-27 11:02:06.793 +05:30  INF]  Executing OkObjectResult, writing value of type 'Backend.Core.Common.ErrorHandlers.Results`1[[Backend.Core.Data.Entities.UserModel, Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2023-03-27 11:02:06.793 +05:30  INF]  Executed action Backend.Controllers.AccountController.Login (Backend) in 76.5251ms
+[2023-03-27 11:02:06.793 +05:30  INF]  Executed endpoint 'Backend.Controllers.AccountController.Login (Backend)'
+[2023-03-27 11:02:06.793 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/Account/Login/ application/json 59 - 200 - application/json;+charset=utf-8 77.3691ms
+[2023-03-27 11:02:06.983 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/token application/json 40
+[2023-03-27 11:02:06.983 +05:30  INF]  Executing endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 11:02:06.983 +05:30  INF]  Route matched with {action = "Post", controller = "Token"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.TokenController (Backend).
+[2023-03-27 11:02:06.983 +05:30  INF]  Executing OkObjectResult, writing value of type 'System.String'.
+[2023-03-27 11:02:06.983 +05:30  INF]  Executed action Backend.Controllers.TokenController.Post (Backend) in 0.5524ms
+[2023-03-27 11:02:06.984 +05:30  INF]  Executed endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 11:02:06.984 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/token application/json 40 - 200 - application/json;+charset=utf-8 1.1321ms
+[2023-03-27 11:02:07.004 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/api/Account/UserList/ - -
+[2023-03-27 11:02:07.005 +05:30  INF]  Executing endpoint 'Backend.Controllers.AccountController.UsersList (Backend)'
+[2023-03-27 11:02:07.005 +05:30  INF]  Route matched with {action = "UsersList", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UsersList() on controller Backend.Controllers.AccountController (Backend).
+[2023-03-27 11:02:07.006 +05:30  INF]  Entity Framework Core 6.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.12' with options: None
+[2023-03-27 11:02:07.011 +05:30  INF]  Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[UserId], [u].[Address], [u].[DOB], [u].[DOJ], [u].[FirstName], [u].[Gender], [u].[Image], [u].[LastName], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Users] AS [u]
+INNER JOIN [AspNetUsers] AS [a] ON [u].[UserId] = [a].[Id]
+[2023-03-27 11:02:07.012 +05:30  INF]  Executing OkObjectResult, writing value of type 'Backend.Core.Common.ErrorHandlers.Results`1[[System.Collections.Generic.List`1[[Backend.Core.Data.Entities.UserModel, Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2023-03-27 11:02:07.013 +05:30  INF]  Executed action Backend.Controllers.AccountController.UsersList (Backend) in 7.518ms
+[2023-03-27 11:02:07.013 +05:30  INF]  Executed endpoint 'Backend.Controllers.AccountController.UsersList (Backend)'
+[2023-03-27 11:02:07.013 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/api/Account/UserList/ - - - 200 - application/json;+charset=utf-8 9.0641ms
+[2023-03-27 11:02:11.293 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/token application/json 40
+[2023-03-27 11:02:11.294 +05:30  INF]  Executing endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 11:02:11.294 +05:30  INF]  Route matched with {action = "Post", controller = "Token"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.TokenController (Backend).
+[2023-03-27 11:02:11.295 +05:30  INF]  Executing OkObjectResult, writing value of type 'System.String'.
+[2023-03-27 11:02:11.295 +05:30  INF]  Executed action Backend.Controllers.TokenController.Post (Backend) in 0.7352ms
+[2023-03-27 11:02:11.295 +05:30  INF]  Executed endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 11:02:11.295 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/token application/json 40 - 200 - application/json;+charset=utf-8 2.2128ms
+[2023-03-27 11:02:11.306 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/api/Administrative/Roles/ - -
+[2023-03-27 11:02:11.389 +05:30  INF]  Basic was not authenticated. Failure message: Authentication FailedThe input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+[2023-03-27 11:02:11.390 +05:30  INF]  Executing endpoint 'Backend.Controllers.AdministrativeController.AllRoles (Backend)'
+[2023-03-27 11:02:11.390 +05:30  INF]  Route matched with {action = "AllRoles", controller = "Administrative"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AllRoles() on controller Backend.Controllers.AdministrativeController (Backend).
+[2023-03-27 11:02:11.392 +05:30  INF]  Entity Framework Core 6.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.12' with options: None
+[2023-03-27 11:02:11.397 +05:30  INF]  Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+[2023-03-27 11:02:11.398 +05:30  INF]  Executing OkObjectResult, writing value of type 'Backend.Core.Common.ErrorHandlers.Results`1[[System.Collections.Generic.List`1[[Microsoft.AspNetCore.Identity.IdentityRole, Microsoft.Extensions.Identity.Stores, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2023-03-27 11:02:11.398 +05:30  INF]  Executed action Backend.Controllers.AdministrativeController.AllRoles (Backend) in 8.1903ms
+[2023-03-27 11:02:11.399 +05:30  INF]  Executed endpoint 'Backend.Controllers.AdministrativeController.AllRoles (Backend)'
+[2023-03-27 11:02:11.399 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/api/Administrative/Roles/ - - - 200 - application/json;+charset=utf-8 92.6438ms
+[2023-03-27 11:02:46.555 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/token application/json 40
+[2023-03-27 11:02:46.556 +05:30  INF]  Executing endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 11:02:46.556 +05:30  INF]  Route matched with {action = "Post", controller = "Token"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.TokenController (Backend).
+[2023-03-27 11:02:46.566 +05:30  INF]  Executing OkObjectResult, writing value of type 'System.String'.
+[2023-03-27 11:02:46.566 +05:30  INF]  Executed action Backend.Controllers.TokenController.Post (Backend) in 10.4423ms
+[2023-03-27 11:02:46.566 +05:30  INF]  Executed endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 11:02:46.566 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/token application/json 40 - 200 - application/json;+charset=utf-8 11.2791ms
+[2023-03-27 11:02:46.584 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/api/Administrative/Roles/ - -
+[2023-03-27 11:02:46.627 +05:30  INF]  Basic was not authenticated. Failure message: Authentication FailedThe input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+[2023-03-27 11:02:46.627 +05:30  INF]  Executing endpoint 'Backend.Controllers.AdministrativeController.AllRoles (Backend)'
+[2023-03-27 11:02:46.627 +05:30  INF]  Route matched with {action = "AllRoles", controller = "Administrative"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AllRoles() on controller Backend.Controllers.AdministrativeController (Backend).
+[2023-03-27 11:02:46.628 +05:30  INF]  Entity Framework Core 6.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.12' with options: None
+[2023-03-27 11:02:46.635 +05:30  INF]  Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+[2023-03-27 11:02:46.641 +05:30  INF]  Executing OkObjectResult, writing value of type 'Backend.Core.Common.ErrorHandlers.Results`1[[System.Collections.Generic.List`1[[Microsoft.AspNetCore.Identity.IdentityRole, Microsoft.Extensions.Identity.Stores, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2023-03-27 11:02:46.646 +05:30  INF]  Executed action Backend.Controllers.AdministrativeController.AllRoles (Backend) in 18.6614ms
+[2023-03-27 11:02:46.650 +05:30  INF]  Executed endpoint 'Backend.Controllers.AdministrativeController.AllRoles (Backend)'
+[2023-03-27 11:02:46.650 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/api/Administrative/Roles/ - - - 200 - application/json;+charset=utf-8 66.2312ms
+[2023-03-27 11:02:58.277 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/token application/json 40
+[2023-03-27 11:02:58.278 +05:30  INF]  Executing endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 11:02:58.278 +05:30  INF]  Route matched with {action = "Post", controller = "Token"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.TokenController (Backend).
+[2023-03-27 11:02:58.279 +05:30  INF]  Executing OkObjectResult, writing value of type 'System.String'.
+[2023-03-27 11:02:58.279 +05:30  INF]  Executed action Backend.Controllers.TokenController.Post (Backend) in 0.9669ms
+[2023-03-27 11:02:58.279 +05:30  INF]  Executed endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 11:02:58.279 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/token application/json 40 - 200 - application/json;+charset=utf-8 1.5868ms
+[2023-03-27 11:02:58.290 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/api/Account/UserList/ - -
+[2023-03-27 11:02:58.291 +05:30  INF]  Executing endpoint 'Backend.Controllers.AccountController.UsersList (Backend)'
+[2023-03-27 11:02:58.291 +05:30  INF]  Route matched with {action = "UsersList", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UsersList() on controller Backend.Controllers.AccountController (Backend).
+[2023-03-27 11:02:58.292 +05:30  INF]  Executing OkObjectResult, writing value of type 'Backend.Core.Common.ErrorHandlers.Results`1[[System.Collections.Generic.List`1[[Backend.Core.Data.Entities.UserModel, Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2023-03-27 11:02:58.292 +05:30  INF]  Executed action Backend.Controllers.AccountController.UsersList (Backend) in 0.8787ms
+[2023-03-27 11:02:58.292 +05:30  INF]  Executed endpoint 'Backend.Controllers.AccountController.UsersList (Backend)'
+[2023-03-27 11:02:58.293 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/api/Account/UserList/ - - - 200 - application/json;+charset=utf-8 2.8881ms
+[2023-03-27 11:03:00.095 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/token application/json 40
+[2023-03-27 11:03:00.095 +05:30  INF]  Executing endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 11:03:00.096 +05:30  INF]  Route matched with {action = "Post", controller = "Token"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.TokenController (Backend).
+[2023-03-27 11:03:00.097 +05:30  INF]  Executing OkObjectResult, writing value of type 'System.String'.
+[2023-03-27 11:03:00.097 +05:30  INF]  Executed action Backend.Controllers.TokenController.Post (Backend) in 1.2315ms
+[2023-03-27 11:03:00.097 +05:30  INF]  Executed endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 11:03:00.097 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/token application/json 40 - 200 - application/json;+charset=utf-8 2.0595ms
+[2023-03-27 11:03:00.108 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/api/Administrative/Roles/ - -
+[2023-03-27 11:03:00.166 +05:30  INF]  Basic was not authenticated. Failure message: Authentication FailedThe input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+[2023-03-27 11:03:00.166 +05:30  INF]  Executing endpoint 'Backend.Controllers.AdministrativeController.AllRoles (Backend)'
+[2023-03-27 11:03:00.167 +05:30  INF]  Route matched with {action = "AllRoles", controller = "Administrative"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AllRoles() on controller Backend.Controllers.AdministrativeController (Backend).
+[2023-03-27 11:03:00.169 +05:30  INF]  Entity Framework Core 6.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.12' with options: None
+[2023-03-27 11:03:00.172 +05:30  INF]  Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+[2023-03-27 11:03:00.172 +05:30  INF]  Executing OkObjectResult, writing value of type 'Backend.Core.Common.ErrorHandlers.Results`1[[System.Collections.Generic.List`1[[Microsoft.AspNetCore.Identity.IdentityRole, Microsoft.Extensions.Identity.Stores, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2023-03-27 11:03:00.173 +05:30  INF]  Executed action Backend.Controllers.AdministrativeController.AllRoles (Backend) in 5.8645ms
+[2023-03-27 11:03:00.173 +05:30  INF]  Executed endpoint 'Backend.Controllers.AdministrativeController.AllRoles (Backend)'
+[2023-03-27 11:03:00.173 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/api/Administrative/Roles/ - - - 200 - application/json;+charset=utf-8 64.9500ms
+[2023-03-27 11:03:06.629 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/token application/json 40
+[2023-03-27 11:03:06.630 +05:30  INF]  Executing endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 11:03:06.630 +05:30  INF]  Route matched with {action = "Post", controller = "Token"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.TokenController (Backend).
+[2023-03-27 11:03:06.631 +05:30  INF]  Executing OkObjectResult, writing value of type 'System.String'.
+[2023-03-27 11:03:06.632 +05:30  INF]  Executed action Backend.Controllers.TokenController.Post (Backend) in 1.337ms
+[2023-03-27 11:03:06.632 +05:30  INF]  Executed endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 11:03:06.632 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/token application/json 40 - 200 - application/json;+charset=utf-8 2.3680ms
+[2023-03-27 11:03:06.656 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/api/Administrative/Roles/ - -
+[2023-03-27 11:03:06.708 +05:30  INF]  Basic was not authenticated. Failure message: Authentication FailedThe input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+[2023-03-27 11:03:06.708 +05:30  INF]  Executing endpoint 'Backend.Controllers.AdministrativeController.AllRoles (Backend)'
+[2023-03-27 11:03:06.709 +05:30  INF]  Route matched with {action = "AllRoles", controller = "Administrative"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AllRoles() on controller Backend.Controllers.AdministrativeController (Backend).
+[2023-03-27 11:03:06.710 +05:30  INF]  Entity Framework Core 6.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.12' with options: None
+[2023-03-27 11:03:06.715 +05:30  INF]  Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+[2023-03-27 11:03:06.716 +05:30  INF]  Executing OkObjectResult, writing value of type 'Backend.Core.Common.ErrorHandlers.Results`1[[System.Collections.Generic.List`1[[Microsoft.AspNetCore.Identity.IdentityRole, Microsoft.Extensions.Identity.Stores, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2023-03-27 11:03:06.716 +05:30  INF]  Executed action Backend.Controllers.AdministrativeController.AllRoles (Backend) in 7.1681ms
+[2023-03-27 11:03:06.716 +05:30  INF]  Executed endpoint 'Backend.Controllers.AdministrativeController.AllRoles (Backend)'
+[2023-03-27 11:03:06.716 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/api/Administrative/Roles/ - - - 200 - application/json;+charset=utf-8 60.2717ms
+[2023-03-27 11:03:26.069 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/token application/json 40
+[2023-03-27 11:03:26.069 +05:30  INF]  Executing endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 11:03:26.070 +05:30  INF]  Route matched with {action = "Post", controller = "Token"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.TokenController (Backend).
+[2023-03-27 11:03:26.070 +05:30  INF]  Executing OkObjectResult, writing value of type 'System.String'.
+[2023-03-27 11:03:26.070 +05:30  INF]  Executed action Backend.Controllers.TokenController.Post (Backend) in 0.4786ms
+[2023-03-27 11:03:26.070 +05:30  INF]  Executed endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 11:03:26.070 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/token application/json 40 - 200 - application/json;+charset=utf-8 1.0619ms
+[2023-03-27 11:03:26.097 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/api/Administrative/Roles/ - -
+[2023-03-27 11:03:26.152 +05:30  INF]  Basic was not authenticated. Failure message: Authentication FailedThe input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+[2023-03-27 11:03:26.152 +05:30  INF]  Executing endpoint 'Backend.Controllers.AdministrativeController.AllRoles (Backend)'
+[2023-03-27 11:03:26.153 +05:30  INF]  Route matched with {action = "AllRoles", controller = "Administrative"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AllRoles() on controller Backend.Controllers.AdministrativeController (Backend).
+[2023-03-27 11:03:26.154 +05:30  INF]  Entity Framework Core 6.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.12' with options: None
+[2023-03-27 11:03:26.155 +05:30  INF]  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+[2023-03-27 11:03:26.156 +05:30  INF]  Executing OkObjectResult, writing value of type 'Backend.Core.Common.ErrorHandlers.Results`1[[System.Collections.Generic.List`1[[Microsoft.AspNetCore.Identity.IdentityRole, Microsoft.Extensions.Identity.Stores, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2023-03-27 11:03:26.156 +05:30  INF]  Executed action Backend.Controllers.AdministrativeController.AllRoles (Backend) in 3.1819ms
+[2023-03-27 11:03:26.156 +05:30  INF]  Executed endpoint 'Backend.Controllers.AdministrativeController.AllRoles (Backend)'
+[2023-03-27 11:03:26.156 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/api/Administrative/Roles/ - - - 200 - application/json;+charset=utf-8 59.3739ms
+[2023-03-27 11:03:30.495 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/token application/json 40
+[2023-03-27 11:03:30.496 +05:30  INF]  Executing endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 11:03:30.496 +05:30  INF]  Route matched with {action = "Post", controller = "Token"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.TokenController (Backend).
+[2023-03-27 11:03:30.496 +05:30  INF]  Executing OkObjectResult, writing value of type 'System.String'.
+[2023-03-27 11:03:30.496 +05:30  INF]  Executed action Backend.Controllers.TokenController.Post (Backend) in 0.6424ms
+[2023-03-27 11:03:30.496 +05:30  INF]  Executed endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 11:03:30.497 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/token application/json 40 - 200 - application/json;+charset=utf-8 1.4641ms
+[2023-03-27 11:03:30.511 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/api/Administrative/Roles/ - -
+[2023-03-27 11:03:30.552 +05:30  INF]  Basic was not authenticated. Failure message: Authentication FailedThe input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+[2023-03-27 11:03:30.552 +05:30  INF]  Executing endpoint 'Backend.Controllers.AdministrativeController.AllRoles (Backend)'
+[2023-03-27 11:03:30.552 +05:30  INF]  Route matched with {action = "AllRoles", controller = "Administrative"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AllRoles() on controller Backend.Controllers.AdministrativeController (Backend).
+[2023-03-27 11:03:30.553 +05:30  INF]  Entity Framework Core 6.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.12' with options: None
+[2023-03-27 11:03:30.555 +05:30  INF]  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+[2023-03-27 11:03:30.555 +05:30  INF]  Executing OkObjectResult, writing value of type 'Backend.Core.Common.ErrorHandlers.Results`1[[System.Collections.Generic.List`1[[Microsoft.AspNetCore.Identity.IdentityRole, Microsoft.Extensions.Identity.Stores, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2023-03-27 11:03:30.555 +05:30  INF]  Executed action Backend.Controllers.AdministrativeController.AllRoles (Backend) in 2.9843ms
+[2023-03-27 11:03:30.556 +05:30  INF]  Executed endpoint 'Backend.Controllers.AdministrativeController.AllRoles (Backend)'
+[2023-03-27 11:03:30.556 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/api/Administrative/Roles/ - - - 200 - application/json;+charset=utf-8 44.2641ms
+[2023-03-27 11:06:16.757 +05:30  INF]  User profile is available. Using 'C:\Users\akhil.madhu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2023-03-27 11:06:17.033 +05:30  INF]  Now listening on: http://localhost:5238
+[2023-03-27 11:06:17.035 +05:30  INF]  Application started. Press Ctrl+C to shut down.
+[2023-03-27 11:06:17.035 +05:30  INF]  Hosting environment: Development
+[2023-03-27 11:06:17.036 +05:30  INF]  Content root path: C:\Users\akhil.madhu\source\repos\Backend\Backend\
+[2023-03-27 11:06:17.888 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/swagger - -
+[2023-03-27 11:06:18.134 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/swagger - - - 301 0 - 253.0010ms
+[2023-03-27 11:06:18.158 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/swagger/index.html - -
+[2023-03-27 11:06:18.454 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/swagger/index.html - - - 200 - text/html;charset=utf-8 295.9948ms
+[2023-03-27 11:06:18.484 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/swagger/swagger-ui.css - -
+[2023-03-27 11:06:18.488 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/swagger/swagger-ui-bundle.js - -
+[2023-03-27 11:06:18.488 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/_vs/browserLink - -
+[2023-03-27 11:06:18.490 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/_framework/aspnetcore-browser-refresh.js - -
+[2023-03-27 11:06:18.495 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/swagger/swagger-ui-standalone-preset.js - -
+[2023-03-27 11:06:18.503 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 12.6865ms
+[2023-03-27 11:06:18.554 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 65.2000ms
+[2023-03-27 11:06:18.558 +05:30  INF]  Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+[2023-03-27 11:06:18.558 +05:30  INF]  Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+[2023-03-27 11:06:18.558 +05:30  INF]  Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+[2023-03-27 11:06:18.558 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/swagger/swagger-ui-standalone-preset.js - - - 200 337162 application/javascript 62.6757ms
+[2023-03-27 11:06:18.558 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/swagger/swagger-ui-bundle.js - - - 200 1092889 application/javascript 69.7345ms
+[2023-03-27 11:06:18.558 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/swagger/swagger-ui.css - - - 200 143632 text/css 73.8668ms
+[2023-03-27 11:06:18.754 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/swagger/v1/swagger.json - -
+[2023-03-27 11:06:18.821 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/swagger/favicon-32x32.png - -
+[2023-03-27 11:06:18.821 +05:30  INF]  Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+[2023-03-27 11:06:18.821 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/swagger/favicon-32x32.png - - - 200 628 image/png 0.7606ms
+[2023-03-27 11:06:18.933 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 178.7145ms
+[2023-03-27 11:29:58.906 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/token application/json 40
+[2023-03-27 11:29:59.453 +05:30  INF]  Executing endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 11:29:59.521 +05:30  INF]  Route matched with {action = "Post", controller = "Token"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.TokenController (Backend).
+[2023-03-27 11:30:00.072 +05:30  INF]  Executing OkObjectResult, writing value of type 'System.String'.
+[2023-03-27 11:30:00.085 +05:30  INF]  Executed action Backend.Controllers.TokenController.Post (Backend) in 554.5171ms
+[2023-03-27 11:30:00.089 +05:30  INF]  Executed endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 11:30:00.089 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/token application/json 40 - 200 - application/json;+charset=utf-8 1183.1076ms
+[2023-03-27 11:30:00.169 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/Account/Login/ application/json 59
+[2023-03-27 11:30:00.431 +05:30  INF]  Executing endpoint 'Backend.Controllers.AccountController.Login (Backend)'
+[2023-03-27 11:30:00.436 +05:30  INF]  Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.AccountController (Backend).
+[2023-03-27 11:30:03.338 +05:30  INF]  Entity Framework Core 6.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.12' with options: None
+[2023-03-27 11:30:05.524 +05:30  INF]  Executed DbCommand (153ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+[2023-03-27 11:30:05.887 +05:30  INF]  Executed DbCommand (10ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[Address], [u].[DOB], [u].[DOJ], [u].[FirstName], [u].[Gender], [u].[Image], [u].[LastName], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Users] AS [u]
+INNER JOIN [AspNetUsers] AS [a] ON [u].[UserId] = [a].[Id]
+WHERE [u].[UserId] = @__user_Id_0
+[2023-03-27 11:30:05.947 +05:30  INF]  Executing OkObjectResult, writing value of type 'Backend.Core.Common.ErrorHandlers.Results`1[[Backend.Core.Data.Entities.UserModel, Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2023-03-27 11:30:05.989 +05:30  INF]  Executed action Backend.Controllers.AccountController.Login (Backend) in 5551.9716ms
+[2023-03-27 11:30:05.990 +05:30  INF]  Executed endpoint 'Backend.Controllers.AccountController.Login (Backend)'
+[2023-03-27 11:30:06.007 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/Account/Login/ application/json 59 - 200 - application/json;+charset=utf-8 5838.0933ms
+[2023-03-27 11:30:06.307 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/token application/json 40
+[2023-03-27 11:30:06.309 +05:30  INF]  Executing endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 11:30:06.309 +05:30  INF]  Route matched with {action = "Post", controller = "Token"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.TokenController (Backend).
+[2023-03-27 11:30:06.310 +05:30  INF]  Executing OkObjectResult, writing value of type 'System.String'.
+[2023-03-27 11:30:06.310 +05:30  INF]  Executed action Backend.Controllers.TokenController.Post (Backend) in 0.8029ms
+[2023-03-27 11:30:06.310 +05:30  INF]  Executed endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 11:30:06.310 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/token application/json 40 - 200 - application/json;+charset=utf-8 2.9149ms
+[2023-03-27 11:30:06.327 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/api/Account/UserList/ - -
+[2023-03-27 11:30:06.338 +05:30  INF]  Executing endpoint 'Backend.Controllers.AccountController.UsersList (Backend)'
+[2023-03-27 11:30:06.342 +05:30  INF]  Route matched with {action = "UsersList", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UsersList() on controller Backend.Controllers.AccountController (Backend).
+[2023-03-27 11:30:06.410 +05:30  INF]  Entity Framework Core 6.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.12' with options: None
+[2023-03-27 11:30:06.432 +05:30  INF]  Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[UserId], [u].[Address], [u].[DOB], [u].[DOJ], [u].[FirstName], [u].[Gender], [u].[Image], [u].[LastName], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Users] AS [u]
+INNER JOIN [AspNetUsers] AS [a] ON [u].[UserId] = [a].[Id]
+[2023-03-27 11:30:06.440 +05:30  INF]  Executing OkObjectResult, writing value of type 'Backend.Core.Common.ErrorHandlers.Results`1[[System.Collections.Generic.List`1[[Backend.Core.Data.Entities.UserModel, Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2023-03-27 11:30:06.444 +05:30  INF]  Executed action Backend.Controllers.AccountController.UsersList (Backend) in 101.8049ms
+[2023-03-27 11:30:06.444 +05:30  INF]  Executed endpoint 'Backend.Controllers.AccountController.UsersList (Backend)'
+[2023-03-27 11:30:06.448 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/api/Account/UserList/ - - - 200 - application/json;+charset=utf-8 120.9229ms
+[2023-03-27 11:54:36.036 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/token application/json 40
+[2023-03-27 11:54:36.040 +05:30  INF]  Executing endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 11:54:36.042 +05:30  INF]  Route matched with {action = "Post", controller = "Token"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.TokenController (Backend).
+[2023-03-27 11:54:36.044 +05:30  INF]  Executing OkObjectResult, writing value of type 'System.String'.
+[2023-03-27 11:54:36.044 +05:30  INF]  Executed action Backend.Controllers.TokenController.Post (Backend) in 1.5814ms
+[2023-03-27 11:54:36.044 +05:30  INF]  Executed endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 11:54:36.044 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/token application/json 40 - 200 - application/json;+charset=utf-8 8.2253ms
+[2023-03-27 11:54:36.112 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/api/Account/UserList/ - -
+[2023-03-27 11:54:36.113 +05:30  INF]  Executing endpoint 'Backend.Controllers.AccountController.UsersList (Backend)'
+[2023-03-27 11:54:36.113 +05:30  INF]  Route matched with {action = "UsersList", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UsersList() on controller Backend.Controllers.AccountController (Backend).
+[2023-03-27 11:54:36.136 +05:30  INF]  Entity Framework Core 6.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.12' with options: None
+[2023-03-27 11:54:36.161 +05:30  INF]  Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[UserId], [u].[Address], [u].[DOB], [u].[DOJ], [u].[FirstName], [u].[Gender], [u].[Image], [u].[LastName], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Users] AS [u]
+INNER JOIN [AspNetUsers] AS [a] ON [u].[UserId] = [a].[Id]
+[2023-03-27 11:54:36.163 +05:30  INF]  Executing OkObjectResult, writing value of type 'Backend.Core.Common.ErrorHandlers.Results`1[[System.Collections.Generic.List`1[[Backend.Core.Data.Entities.UserModel, Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2023-03-27 11:54:36.163 +05:30  INF]  Executed action Backend.Controllers.AccountController.UsersList (Backend) in 49.6247ms
+[2023-03-27 11:54:36.163 +05:30  INF]  Executed endpoint 'Backend.Controllers.AccountController.UsersList (Backend)'
+[2023-03-27 11:54:36.163 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/api/Account/UserList/ - - - 200 - application/json;+charset=utf-8 51.7292ms
+[2023-03-27 12:01:42.961 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/token application/json 40
+[2023-03-27 12:01:42.969 +05:30  INF]  Executing endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 12:01:42.969 +05:30  INF]  Route matched with {action = "Post", controller = "Token"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.TokenController (Backend).
+[2023-03-27 12:01:42.970 +05:30  INF]  Executing OkObjectResult, writing value of type 'System.String'.
+[2023-03-27 12:01:42.970 +05:30  INF]  Executed action Backend.Controllers.TokenController.Post (Backend) in 0.6317ms
+[2023-03-27 12:01:42.970 +05:30  INF]  Executed endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 12:01:42.970 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/token application/json 40 - 200 - application/json;+charset=utf-8 10.9613ms
+[2023-03-27 12:01:43.040 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/api/Account/UserList/ - -
+[2023-03-27 12:01:43.041 +05:30  INF]  Executing endpoint 'Backend.Controllers.AccountController.UsersList (Backend)'
+[2023-03-27 12:01:43.041 +05:30  INF]  Route matched with {action = "UsersList", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UsersList() on controller Backend.Controllers.AccountController (Backend).
+[2023-03-27 12:01:43.043 +05:30  INF]  Entity Framework Core 6.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.12' with options: None
+[2023-03-27 12:01:43.048 +05:30  INF]  Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[UserId], [u].[Address], [u].[DOB], [u].[DOJ], [u].[FirstName], [u].[Gender], [u].[Image], [u].[LastName], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Users] AS [u]
+INNER JOIN [AspNetUsers] AS [a] ON [u].[UserId] = [a].[Id]
+[2023-03-27 12:01:43.049 +05:30  INF]  Executing OkObjectResult, writing value of type 'Backend.Core.Common.ErrorHandlers.Results`1[[System.Collections.Generic.List`1[[Backend.Core.Data.Entities.UserModel, Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2023-03-27 12:01:43.049 +05:30  INF]  Executed action Backend.Controllers.AccountController.UsersList (Backend) in 7.9287ms
+[2023-03-27 12:01:43.050 +05:30  INF]  Executed endpoint 'Backend.Controllers.AccountController.UsersList (Backend)'
+[2023-03-27 12:01:43.050 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/api/Account/UserList/ - - - 200 - application/json;+charset=utf-8 9.8200ms
+[2023-03-27 12:06:19.642 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/token application/json 40
+[2023-03-27 12:06:19.642 +05:30  INF]  Executing endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 12:06:19.643 +05:30  INF]  Route matched with {action = "Post", controller = "Token"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.TokenController (Backend).
+[2023-03-27 12:06:19.648 +05:30  INF]  Executing OkObjectResult, writing value of type 'System.String'.
+[2023-03-27 12:06:19.649 +05:30  INF]  Executed action Backend.Controllers.TokenController.Post (Backend) in 3.2502ms
+[2023-03-27 12:06:19.649 +05:30  INF]  Executed endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 12:06:19.649 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/token application/json 40 - 200 - application/json;+charset=utf-8 7.8758ms
+[2023-03-27 12:06:19.656 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/Account/Register/ application/json 552
+[2023-03-27 12:06:19.657 +05:30  INF]  Executing endpoint 'Backend.Controllers.AccountController.Register (Backend)'
+[2023-03-27 12:06:19.662 +05:30  INF]  Route matched with {action = "Register", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(Backend.Core.Data.Entities.UserModel) on controller Backend.Controllers.AccountController (Backend).
+[2023-03-27 12:06:19.690 +05:30  INF]  Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+[2023-03-27 12:06:19.693 +05:30  INF]  Executed action Backend.Controllers.AccountController.Register (Backend) in 31.1677ms
+[2023-03-27 12:06:19.693 +05:30  INF]  Executed endpoint 'Backend.Controllers.AccountController.Register (Backend)'
+[2023-03-27 12:06:19.694 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/Account/Register/ application/json 552 - 400 - application/problem+json;+charset=utf-8 38.5871ms
+[2023-03-27 12:09:07.107 +05:30  INF]  User profile is available. Using 'C:\Users\akhil.madhu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2023-03-27 12:09:07.427 +05:30  INF]  Now listening on: http://localhost:5238
+[2023-03-27 12:09:07.430 +05:30  INF]  Application started. Press Ctrl+C to shut down.
+[2023-03-27 12:09:07.430 +05:30  INF]  Hosting environment: Development
+[2023-03-27 12:09:07.430 +05:30  INF]  Content root path: C:\Users\akhil.madhu\source\repos\Backend\Backend\
+[2023-03-27 12:09:08.879 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/swagger/index.html - -
+[2023-03-27 12:09:09.362 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/swagger/index.html - - - 200 - text/html;charset=utf-8 489.0145ms
+[2023-03-27 12:09:09.389 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/_framework/aspnetcore-browser-refresh.js - -
+[2023-03-27 12:09:09.396 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 6.2968ms
+[2023-03-27 12:09:09.439 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/_vs/browserLink - -
+[2023-03-27 12:09:09.499 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 59.9547ms
+[2023-03-27 12:09:09.698 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/swagger/v1/swagger.json - -
+[2023-03-27 12:09:09.912 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 214.0086ms
+[2023-03-27 12:09:24.428 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/token application/json 40
+[2023-03-27 12:09:24.600 +05:30  INF]  Executing endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 12:09:24.630 +05:30  INF]  Route matched with {action = "Post", controller = "Token"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.TokenController (Backend).
+[2023-03-27 12:09:25.028 +05:30  INF]  Executing OkObjectResult, writing value of type 'System.String'.
+[2023-03-27 12:09:25.036 +05:30  INF]  Executed action Backend.Controllers.TokenController.Post (Backend) in 400.3934ms
+[2023-03-27 12:09:25.038 +05:30  INF]  Executed endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 12:09:25.038 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/token application/json 40 - 200 - application/json;+charset=utf-8 609.4781ms
+[2023-03-27 12:09:25.081 +05:30  INF]  Request starting HTTP/1.1 GET http://localhost:5238/api/Account/UserList/ - -
+[2023-03-27 12:09:25.282 +05:30  INF]  Executing endpoint 'Backend.Controllers.AccountController.UsersList (Backend)'
+[2023-03-27 12:09:25.287 +05:30  INF]  Route matched with {action = "UsersList", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UsersList() on controller Backend.Controllers.AccountController (Backend).
+[2023-03-27 12:09:27.859 +05:30  INF]  Entity Framework Core 6.0.12 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.12' with options: None
+[2023-03-27 12:09:29.825 +05:30  INF]  Executed DbCommand (139ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[UserId], [u].[Address], [u].[DOB], [u].[DOJ], [u].[FirstName], [u].[Gender], [u].[Image], [u].[LastName], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Users] AS [u]
+INNER JOIN [AspNetUsers] AS [a] ON [u].[UserId] = [a].[Id]
+[2023-03-27 12:09:30.209 +05:30  INF]  Executing OkObjectResult, writing value of type 'Backend.Core.Common.ErrorHandlers.Results`1[[System.Collections.Generic.List`1[[Backend.Core.Data.Entities.UserModel, Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2023-03-27 12:09:30.243 +05:30  INF]  Executed action Backend.Controllers.AccountController.UsersList (Backend) in 4956.238ms
+[2023-03-27 12:09:30.244 +05:30  INF]  Executed endpoint 'Backend.Controllers.AccountController.UsersList (Backend)'
+[2023-03-27 12:09:30.271 +05:30  INF]  Request finished HTTP/1.1 GET http://localhost:5238/api/Account/UserList/ - - - 200 - application/json;+charset=utf-8 5190.5067ms
+[2023-03-27 12:10:45.880 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/token application/json 40
+[2023-03-27 12:10:45.882 +05:30  INF]  Executing endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 12:10:45.882 +05:30  INF]  Route matched with {action = "Post", controller = "Token"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(Backend.Core.ViewModels.LoginViewModel) on controller Backend.Controllers.TokenController (Backend).
+[2023-03-27 12:10:45.884 +05:30  INF]  Executing OkObjectResult, writing value of type 'System.String'.
+[2023-03-27 12:10:45.885 +05:30  INF]  Executed action Backend.Controllers.TokenController.Post (Backend) in 2.2608ms
+[2023-03-27 12:10:45.885 +05:30  INF]  Executed endpoint 'Backend.Controllers.TokenController.Post (Backend)'
+[2023-03-27 12:10:45.885 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/token application/json 40 - 200 - application/json;+charset=utf-8 4.5492ms
+[2023-03-27 12:10:45.913 +05:30  INF]  Request starting HTTP/1.1 POST http://localhost:5238/api/Account/Register/ application/json 552
+[2023-03-27 12:10:45.915 +05:30  INF]  Executing endpoint 'Backend.Controllers.AccountController.Register (Backend)'
+[2023-03-27 12:10:45.918 +05:30  INF]  Route matched with {action = "Register", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(Backend.Core.Data.Entities.UserModel) on controller Backend.Controllers.AccountController (Backend).
+[2023-03-27 12:10:45.938 +05:30  INF]  Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+[2023-03-27 12:10:45.940 +05:30  INF]  Executed action Backend.Controllers.AccountController.Register (Backend) in 22.3167ms
+[2023-03-27 12:10:45.940 +05:30  INF]  Executed endpoint 'Backend.Controllers.AccountController.Register (Backend)'
+[2023-03-27 12:10:45.941 +05:30  INF]  Request finished HTTP/1.1 POST http://localhost:5238/api/Account/Register/ application/json 552 - 400 - application/problem+json;+charset=utf-8 27.4068ms
